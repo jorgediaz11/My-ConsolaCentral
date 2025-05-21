@@ -6,8 +6,8 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService, 
-    private jwtService: JwtService
+    private usersService: UsersService,
+    private jwtService: JwtService,
   ) {}
 
   async signIn(email: string, pass: string): Promise<{ access_token: string }> {
@@ -19,8 +19,12 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const { password, ...result } = user;
-    
-    const payload = { sub: user.id, username: user.username, email: user.email };
+
+    const payload = {
+      sub: user.id,
+      username: user.username,
+      email: user.email,
+    };
     return {
       access_token: await this.jwtService.signAsync(payload),
     };

@@ -1,4 +1,3 @@
-
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -20,12 +19,12 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  findOneByUsername(username: string): Promise<User  | null> {
-    return this.usersRepository.findOneBy({username})
+  findOneByUsername(username: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ username });
   }
 
-  findOneByEmail(email: string): Promise<User  | null> {
-    return this.usersRepository.findOneBy({email})
+  findOneByEmail(email: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ email });
   }
 
   async remove(id: number): Promise<void> {

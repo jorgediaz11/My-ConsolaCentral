@@ -15,5 +15,5 @@ export class UsersModule {
 
   async onApplicationBootstrap() {
     await this.usersService.createSuperAdmin();
-  }  
+  }
 }

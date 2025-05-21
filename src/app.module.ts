@@ -14,8 +14,8 @@ const pgConfig = {
   password: 'root',
   database: 'root',
   entities: [],
-  synchronize: false
-}
+  synchronize: false,
+};
 
 const sqliteConfig: TypeOrmModuleOptions = {
   type: 'sqlite',
@@ -23,17 +23,13 @@ const sqliteConfig: TypeOrmModuleOptions = {
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: true,
   logging: true,
-}
+};
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(sqliteConfig),
-    UsersModule,
-    AuthModule
-  ],
+  imports: [TypeOrmModule.forRoot(sqliteConfig), UsersModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private datasource: DataSource){}
+  constructor(private datasource: DataSource) {}
 }
