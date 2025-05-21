@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DataSource } from 'typeorm';
 import { UsersModule } from './modules/users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 const pgConfig = {
   type: 'postgres',
@@ -27,7 +28,8 @@ const sqliteConfig: TypeOrmModuleOptions = {
 @Module({
   imports: [
     TypeOrmModule.forRoot(sqliteConfig),
-    UsersModule
+    UsersModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

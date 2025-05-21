@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../../models/user.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -19,6 +20,14 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
+  findOneByUsername(username: string): Promise<User  | null> {
+    return this.usersRepository.findOneBy({username})
+  }
+
+  findOneByEmail(email: string): Promise<User  | null> {
+    return this.usersRepository.findOneBy({email})
+  }
+
   async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
@@ -29,9 +38,12 @@ export class UsersService {
     });
 
     if (!existingAdmin) {
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash('root:toor', saltRounds);
+
       const superAdmin = this.usersRepository.create({
         username: 'superadmin',
-        password: 'supersecurepassword', // Cambia esto por un hash en producción
+        password: hashedPassword, // Cambia esto por un hash en producción
         email: 'admin@lms.com',
         firstName: 'Super',
         lastName: 'Admin',
