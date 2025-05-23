@@ -52,6 +52,15 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
               entities: [__dirname + '/**/*.entity{.ts,.js}'],
               synchronize: true, // ⚠️ solo en dev o staging
               logging: true,
+              ssl: process.env.POSTGRES_SSL === 'true',
+              extra: {
+                ssl:
+                  process.env.POSTGRES_SSL === 'true'
+                    ? {
+                        rejectUnauthorized: false,
+                      }
+                    : null
+                    }
             };
       },
     }),
