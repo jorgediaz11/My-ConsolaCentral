@@ -10,13 +10,13 @@ import { JwtStrategy } from './jwt.strategy';
   imports: [
     UsersModule,
     JwtModule.register({
-      global: true,
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      global: true, // Make the JwtModule globally available
+      secret: jwtConstants.secret,  // Secret key for signing the JWT
+      signOptions: { expiresIn: '60s' },  // Token expiration time
     }),
   ],
-  controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
-  exports: [AuthService],
+  controllers: [AuthController],  // Controller for handling authentication routes
+  providers: [AuthService, JwtStrategy],  // Service for handling authentication logic
+  exports: [AuthService], // Export AuthService for use in other modules
 })
-export class AuthModule {}
+export class AuthModule {}  // AuthModule for handling authentication
