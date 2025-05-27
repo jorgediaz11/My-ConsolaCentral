@@ -7,7 +7,7 @@ import { CreateUserDto } from './dto/CreateUserDto';
 @Controller('users')
 @UseGuards(JwtAuthGuard)
 export class UsersController {
-  constructor(private readonly userService: UsersService) {}
+  constructor(private readonly userService: UsersService) {}  // Constructor que recibe una instancia del servicio UsersService.
 
   @Get()
   list() {
@@ -27,4 +27,5 @@ export class UsersController {
   async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   } */
+
 }

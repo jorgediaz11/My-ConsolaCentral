@@ -1,3 +1,5 @@
+// 02 Importa los módulos necesarios
+// Importa y registra todos los módulos funcionales, incluyendo el módulo de autenticación.
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -44,5 +46,5 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private datasource: DataSource) {}
+  constructor(private datasource: DataSource) {}  // Constructor que recibe una instancia de DataSource para manejar la conexión a la base de datos.
 }

@@ -6,8 +6,8 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService,
-    private jwtService: JwtService,
+    private usersService: UsersService, // Service for user-related operations
+    private jwtService: JwtService, // Service for handling JWT operations
   ) {}
 
   async signIn(email: string, pass: string): Promise<{ access_token: string }> {

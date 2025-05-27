@@ -1,6 +1,7 @@
+// Created by: [Your Name]
 import { Injectable } from '@nestjs/common';
 
-@Injectable()
+@Injectable() // Injectable decorator to mark this class as a provider
 export class AppService {
   about(): object {
     return {

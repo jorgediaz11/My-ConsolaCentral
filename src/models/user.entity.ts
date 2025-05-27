@@ -1,3 +1,5 @@
+// 06 Acceso a la Base de Datos
+// Define la entidad y estructura de la tabla de usuarios.
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 export enum Role {
@@ -8,22 +10,22 @@ export enum Role {
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn() // Genera automáticamente un ID único para cada usuario.
   id: number;
 
-  @Column()
+  @Column()   // Define una columna para el nombre de pila del usuario.
   firstName: string;
 
-  @Column()
+  @Column()  // Define una columna para el apellido del usuario.//  
   lastName: string;
 
-  @Column()
+  @Column() // Define una columna para el correo electrónico del usuario.// 
   email: string;
 
-  @Column()
+  @Column() // Define una columna para el nombre de usuario del usuario.//  
   username: string;
 
-  @Column()
+  @Column()   // Define una columna para la contraseña del usuario.//
   password: string;
 
   @Column({
