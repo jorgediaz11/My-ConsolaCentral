@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../../models/user.entity';
+import { Role, User } from '../../models/user.entity';
 import * as bcrypt from 'bcrypt';
+import { CreateUserDto } from './dto/CreateUserDto';
 
 @Injectable()
 export class UsersService {
@@ -31,6 +32,10 @@ export class UsersService {
     await this.usersRepository.delete(id);
   }
 
+  create(createUserDto: CreateUserDto){
+    this.usersRepository.create(createUserDto);
+  }
+
   async createSuperAdmin(): Promise<void> {
     const existingAdmin = await this.usersRepository.findOne({
       where: { email: 'admin@lms.com' },
@@ -46,6 +51,7 @@ export class UsersService {
         email: 'admin@lms.com',
         firstName: 'Super',
         lastName: 'Admin',
+        role: Role.ADMIN
       });
 
       await this.usersRepository.save(superAdmin);

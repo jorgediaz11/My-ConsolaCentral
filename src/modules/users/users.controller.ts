@@ -1,18 +1,23 @@
-import { Controller, Get, HttpStatus, Injectable, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Injectable, Post, Res, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateUserDto } from './dto/CreateUserDto';
 
 @Controller('users')
+@UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   list() {
     return this.userService.findAll();
-    // console.debug(users.length)
-    // return res.status(HttpStatus.OK).json(users);
+  }
+
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.userService.create(createUserDto);
   }
 
   /* findOne(id: number): Promise<User | null> {

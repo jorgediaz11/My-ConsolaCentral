@@ -1,0 +1,10 @@
+import { Role } from "src/models/user.entity";
+
+export class CreateUserDto {
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: Role;
+}

@@ -15,8 +15,11 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "api version"', () => {
+      expect(appController.about()).toMatchObject({name: 'LMS API',
+        description: 'An API for managing a Learning Management System.',
+        version: '1.0.0',
+        author: 'Nats'})
     });
   });
 });
