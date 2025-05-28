@@ -34,8 +34,9 @@ export class UsersService {
     await this.usersRepository.delete(id);  // Elimina un usuario específico por su ID.
   }
 
-  create(createUserDto: CreateUserDto){
-    this.usersRepository.create(createUserDto);
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const user = this.usersRepository.create(createUserDto);
+    return await this.usersRepository.save(user);  // Crea un nuevo usuario y lo guarda en la base de datos.
   }
 
   async createSuperAdmin(): Promise<void> {
