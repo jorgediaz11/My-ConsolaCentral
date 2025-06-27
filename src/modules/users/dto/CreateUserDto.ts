@@ -1,10 +1,12 @@
-import { Role } from "src/models/user.entity";
+import { Role } from 'src/models/user.entity';
 
 export class CreateUserDto {
   username: string;
   password: string;
+  nombre: string;
+  apellido: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  idRol: number;
+  // otros campos según tu modelo...
   role: Role;
 }
