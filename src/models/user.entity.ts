@@ -36,8 +36,8 @@ export class User {
   // @Column({ name: 'contraseña_hash' })
   // contrasenaHash: string;
 
-  @Column()
-  estado: string;
+  @Column({ type: 'boolean' })
+  estado: boolean;
 
   // E32: Nombre de usuario
   @Column() // Define una columna para el nombre de usuario del usuario.//

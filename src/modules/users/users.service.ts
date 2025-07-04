@@ -5,8 +5,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../../models/user.entity';
 import * as bcrypt from 'bcrypt';
+import { User } from '../../models/user.entity';
 import { CreateUserDto } from './dto/CreateUserDto';
 import { UpdateUserDto } from './dto/UpdateUserDto';
 
@@ -79,7 +79,7 @@ export class UsersService {
   async createSuperAdmin(): Promise<void> {
     const existingAdmin = await this.usersRepository.findOne({
       // Busca un usuario existente con el correo electrónico
-      where: { email: 'admin@lms.com' }, // Cambia esto por el correo electrónico del superadmin
+      where: { email: 'admin@lms2.com' }, // Cambia esto por el correo electrónico del superadmin
     });
 
     if (!existingAdmin) {
@@ -87,19 +87,19 @@ export class UsersService {
       const hashedPassword = await bcrypt.hash('root:toor', saltRounds); // Cambia esto por un hash en producción
 
       const superAdmin = this.usersRepository.create({
-        username: 'superadmin', // Cambia esto por el nombre de usuario del superadmin
+        username: 'superadmin2', // Cambia esto por el nombre de usuario del superadmin
         //password: hashedPassword, // Cambia esto por un hash en producción
         password: hashedPassword, // Cambia esto por un hash en producción
-        email: 'admin@lms.com', // Cambia esto por el correo electrónico del superadmin
-        nombre: 'Super', // Cambia esto por el nombre del superadmin
-        apellido: 'Admin', // Cambia esto por el apellido del superadmin
+        email: 'admin@lms2.com', // Cambia esto por el correo electrónico del superadmin
+        nombre: 'Super2', // Cambia esto por el nombre del superadmin
+        apellido: 'Admin2', // Cambia esto por el apellido del superadmin
         idRol: Role.SuperAdmin,
       });
 
       await this.usersRepository.save(superAdmin); // Guarda el nuevo superadmin en la base de datos
-      console.debug('Superadmin created successfully'); // Mensaje de éxito
+      console.debug('Superadmin creado con éxito'); // Mensaje de éxito
     } else {
-      console.debug('Superadmin already exists'); // Mensaje de que ya existe
+      console.debug('Superadmin ya existe'); // Mensaje de que ya existe
     }
   }
 

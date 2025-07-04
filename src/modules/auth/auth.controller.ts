@@ -1,7 +1,5 @@
 // 07 This file defines the AuthController for handling authentication requests in a NestJS application.
 // It imports necessary modules and services, defines the controller, and implements a sign-in endpoint.
-// src/modules/auth/auth.controller.ts
-
 // E23: Controlador para endpoints de autenticación
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -24,6 +22,7 @@ export class AuthController {
   async login(@Body() loginDto: { username: string; password: string }) {
     return this.authService.login(loginDto);
   }
+
   // login(@Body() loginDto: { username: string; password: string }) {
   //   // lógica de login
   //   const { username } = loginDto;

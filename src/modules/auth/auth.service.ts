@@ -1,4 +1,4 @@
-// 08
+// 08 Validacion de datos y autenticación
 // E26: Servicio para la lógica de autenticación
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -18,7 +18,7 @@ export class AuthService {
     const user = await this.usersService.findOneByEmail(email);
 
     if (!user) {
-      throw new UnauthorizedException('User not found');
+      throw new UnauthorizedException('Usuario no encontrado');
     }
 
     const passwordMatcb = await bcrypt.compare(pass, user.password);
@@ -52,21 +52,4 @@ export class AuthService {
       }),
     };
   }
-  // async login(loginDto: { username: string; password: string }) {
-  //   // E36: Validar usuario y contraseña usando UsersService
-  //   const user = await this.usersService.validateUser(
-  //     loginDto.username,
-  //     loginDto.password,
-  //   );
-  //   if (!user) {
-  //     throw new Error('Credenciales inválidas');
-  //   }
-  //   // E37: Generar y devolver token JWT
-  //   return {
-  //     access_token: this.jwtService.sign({
-  //       sub: user.id,
-  //       username: user.username,
-  //     }),
-  //   };
-  // }
 }
