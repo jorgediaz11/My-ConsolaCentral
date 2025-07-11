@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Editor } from '../../models/editor.entity';
+import { Editor } from './editor.entity';
 import { CreateEditorDto } from './dto/CreateEditorDto';
 import { UpdateEditorDto } from './dto/UpdateEditorDto';
 

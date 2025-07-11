@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Colegio } from '../../models/colegio.entity';
+import { Colegio } from './colegio.entity';
 import { ColegiosController } from './colegios.controller';
 import { ColegiosService } from './colegios.service';
 

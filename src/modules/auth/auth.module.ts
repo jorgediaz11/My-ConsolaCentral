@@ -1,22 +1,24 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtModule } from '@nestjs/jwt';
+//import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { UsersModule } from '../users/users.module';
-import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constans';
+import { User } from '../users/user.entity';
 import { JwtStrategy } from './jwt.strategy';
+import { jwtConstants } from './constans';
 
 @Module({
   imports: [
-    UsersModule,
+    TypeOrmModule.forFeature([User]), // ← CAMBIO PRINCIPAL: Acceso directo al repositorio
     JwtModule.register({
-      global: true, // Make the JwtModule globally available
-      secret: jwtConstants.secret, // Secret key for signing the JWT
-      signOptions: { expiresIn: '7d' }, // Token expiration time
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '7d' },
     }),
   ],
-  controllers: [AuthController], // Controller for handling authentication routes
-  providers: [AuthService, JwtStrategy], // Service for handling authentication logic
-  exports: [AuthService], // Export AuthService for use in other modules
+  controllers: [AuthController],
+  providers: [AuthService, JwtStrategy],
+  exports: [AuthService],
 })
-export class AuthModule {} // AuthModule for handling authentication
+export class AuthModule {}

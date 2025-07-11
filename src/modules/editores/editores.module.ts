@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Editor } from '../../models/editor.entity';
+import { Editor } from './editor.entity';
 import { EditoresController } from './editores.controller';
 import { EditoresService } from './editores.service';
 

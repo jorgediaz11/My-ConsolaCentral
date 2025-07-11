@@ -2,54 +2,57 @@
 // E26: Servicio para la lógica de autenticación
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UsersService } from '../users/users.service';
-import * as bcrypt from 'bcrypt';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService, // Service for user-related operations
-    private jwtService: JwtService, // Service for handling JWT operations
+    private jwtService: JwtService,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
 
-  // E27: Validar usuario y generar JWT
-  async signIn(email: string, pass: string): Promise<{ access_token: string }> {
-    // E28: Buscar usuario y validar contraseña
-    const user = await this.usersService.findOneByEmail(email);
+  async login(loginDto: { username: string; password: string }) {
+    const { username, password } = loginDto;
 
-    if (!user) {
-      throw new UnauthorizedException('Usuario no encontrado');
+    // Buscar usuario por username
+    const user = await this.usersRepository.findOne({
+      where: { username },
+    });
+
+    // Validar usuario y contraseña
+    if (!user || user.password !== password) {
+      throw new UnauthorizedException('Credenciales inválidas');
     }
 
-    const passwordMatcb = await bcrypt.compare(pass, user.password);
-
-    if (!passwordMatcb) {
-      throw new UnauthorizedException();
-    }
+    // Crear payload para JWT
     const payload = {
       sub: user.id,
       username: user.username,
-      email: user.email,
     };
-    // E29: Generar y devolver token JWT
+
+    // Generar token
+    const access_token = this.jwtService.sign(payload);
+
+    // ✅ CAMBIO PRINCIPAL: Agregar datos de usuario a la respuesta
     return {
-      access_token: await this.jwtService.signAsync(payload),
+      access_token,
+      user: {
+        id_usuario: user.id,
+        username: user.username,
+        nombre: user.nombre,
+        apellido: user.apellido,
+        email: user.email,
+        idRol: user.idRol,
+        idColegio: user.idColegio,
+        estado: user.estado,
+      },
     };
   }
 
-  async login(loginDto: { username: string; password: string }) {
-    const user = await this.usersService.validateUser(
-      loginDto.username,
-      loginDto.password,
-    );
-    if (!user) {
-      throw new Error('Credenciales inválidas');
-    }
-    return {
-      access_token: this.jwtService.sign({
-        sub: user.id,
-        username: user.username,
-      }),
-    };
+  async signIn(username: string, password: string) {
+    return this.login({ username, password });
   }
 }

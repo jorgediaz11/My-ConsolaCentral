@@ -13,6 +13,10 @@ import { ColegiosModule } from './modules/colegios/colegios.module';
 import { DocentesModule } from './modules/docentes/docentes.module';
 import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
 import { EditoresModule } from './modules/editores/editores.module';
+import { NivelModule } from './modules/nivel/nivel.module';
+import { AreaModule } from './modules/area/area.module';
+import { GradoModule } from './modules/grado/grado.module';
+import { CursoModule } from './modules/curso/curso.module';
 
 @Module({
   imports: [
@@ -52,6 +56,10 @@ import { EditoresModule } from './modules/editores/editores.module';
     }),
     UsersModule,
     AuthModule,
+    NivelModule,
+    AreaModule,
+    GradoModule,
+    CursoModule,
   ],
   // E08: Registro del controlador raíz
   controllers: [AppController],
