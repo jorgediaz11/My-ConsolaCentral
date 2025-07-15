@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Grado } from './Grado.entity';
+import { Grado } from './grado.entity';
 import { GradoService } from './grado.service';
 import { GradoController } from './grado.controller';
 

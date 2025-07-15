@@ -46,7 +46,7 @@ export class AuthService {
         apellido: user.apellido,
         email: user.email,
         idRol: user.idRol,
-        idColegio: user.idColegio,
+        //idColegio: user.idColegio,
         estado: user.estado,
       },
     };

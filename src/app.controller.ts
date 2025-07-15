@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   about(): object {
-    return this.appService.about();
+    return this.appService.about(); // E12: Endpoint GET / that returns application metadata
   }
 }

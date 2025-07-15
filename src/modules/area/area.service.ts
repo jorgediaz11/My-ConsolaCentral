@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Area } from './Area.entity';
+import { Area } from './area.entity';
 import { CreateAreaDto } from './dto/CreateAreaDto';
 import { UpdateAreaDto } from './dto/UpdateAreaDto';
 

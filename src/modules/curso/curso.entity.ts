@@ -5,8 +5,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Area } from '../area/Area.entity';
-import { Grado } from '../grado/Grado.entity';
+import { Area } from '../area/area.entity';
+import { Grado } from '../grado/grado.entity';
 
 @Entity('curso')
 export class Curso {

@@ -17,9 +17,9 @@ export class AppService {
     return {
       name: '',
       //description: 'An API for managing a Learning Management System.',
-      description: 'API - Gestiona el LMS',
-      version: '1.0.0',
-      author: 'Nats',
+      description: 'API - Gestiona el LMS', // 'Descripción de la API',
+      version: '1.0.0', // 'Versión de la API',
+      author: 'Nats', // 'Autor de la API',
     };
   }
 }

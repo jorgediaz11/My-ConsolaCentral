@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Grado } from './Grado.entity';
+import { Grado } from './grado.entity';
 import { CreateGradoDto } from './dto/CreateGradoDto';
 import { UpdateGradoDto } from './dto/UpdateGradoDto';
 

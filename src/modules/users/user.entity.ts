@@ -18,8 +18,8 @@ export class User {
   @PrimaryGeneratedColumn({ name: 'id_usuario' }) // Genera automáticamente un ID único para cada usuario.
   id: number;
 
-  @Column({ name: 'id_colegio' })
-  idColegio: number;
+  // @Column({ name: 'id_colegio' })
+  // idColegio: number;
 
   @Column({ name: 'id_rol' })
   idRol: number;
