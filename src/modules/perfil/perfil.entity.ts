@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('rol')
-export class Rol {
-  @PrimaryGeneratedColumn({ name: 'id_rol' })
+@Entity('perfil')
+export class Perfil {
+  @PrimaryGeneratedColumn({ name: 'id_perfil' })
   id: number;
 
   @Column()

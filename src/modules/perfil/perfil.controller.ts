@@ -7,13 +7,13 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { RolService } from './rol.service';
-import { CreateRolDto } from './dto/CreateRolDto';
-import { UpdateRolDto } from './dto/UpdateRolDto';
+import { PerfilService } from './perfil.service';
+import { CreatePerfilDto } from './dto/CreatePerfilDto';
+import { UpdatePerfilDto } from './dto/UpdatePerfilDto';
 
-@Controller('roles')
-export class RolController {
-  constructor(private readonly service: RolService) {}
+@Controller('perfiles')
+export class PerfilController {
+  constructor(private readonly service: PerfilService) {}
 
   @Get()
   findAll() {
@@ -26,12 +26,12 @@ export class RolController {
   }
 
   @Post()
-  create(@Body() dto: CreateRolDto) {
+  create(@Body() dto: CreatePerfilDto) {
     return this.service.create(dto);
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() dto: UpdateRolDto) {
+  update(@Param('id') id: number, @Body() dto: UpdatePerfilDto) {
     return this.service.update(id, dto);
   }
 

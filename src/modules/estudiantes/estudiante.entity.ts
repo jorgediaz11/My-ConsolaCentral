@@ -12,7 +12,7 @@ export class Estudiante {
   apellido: string;
 
   @Column()
-  email: string;
+  correo: string;
 
   @Column()
   grado: string;

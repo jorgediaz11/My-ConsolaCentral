@@ -1,7 +1,7 @@
 export class CreateDocenteDto {
   nombre: string;
   apellido: string;
-  email: string;
+  correo: string;
   especialidad: string;
   estado: string;
 }

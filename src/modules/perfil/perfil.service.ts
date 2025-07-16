@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Rol } from './rol.entity';
-import { CreateRolDto } from './dto/CreateRolDto';
-import { UpdateRolDto } from './dto/UpdateRolDto';
+import { Perfil } from './perfil.entity';
+import { CreatePerfilDto } from './dto/CreatePerfilDto';
+import { UpdatePerfilDto } from './dto/UpdatePerfilDto';
 
 @Injectable()
-export class RolService {
+export class PerfilService {
   constructor(
-    @InjectRepository(Rol)
-    private repo: Repository<Rol>,
+    @InjectRepository(Perfil)
+    private repo: Repository<Perfil>,
   ) {}
 
   findAll() {
@@ -20,12 +20,12 @@ export class RolService {
     return this.repo.findOne({ where: { id } });
   }
 
-  create(dto: CreateRolDto) {
+  create(dto: CreatePerfilDto) {
     const obj = this.repo.create(dto);
     return this.repo.save(obj);
   }
 
-  async update(id: number, dto: UpdateRolDto) {
+  async update(id: number, dto: UpdatePerfilDto) {
     await this.repo.update(id, dto);
     return this.findOne(id);
   }

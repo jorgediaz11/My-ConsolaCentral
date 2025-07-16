@@ -1,6 +1,6 @@
 export class CreateEditorDto {
   nombre: string;
   apellido: string;
-  email: string;
+  correo: string;
   estado: string;
 }

@@ -5,8 +5,8 @@ export class CreateUserDto {
   password: string;
   nombre: string;
   apellido: string;
-  email: string;
-  idRol: number;
+  correo: string;
+  id_perfil: number;
   // otros campos según tu modelo...
   role: Role;
 }

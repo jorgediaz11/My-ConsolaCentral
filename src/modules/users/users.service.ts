@@ -30,15 +30,15 @@ export class UsersService {
 
   // E21: Obtener un usuario por ID
   findOne(id: number): Promise<User | null> {
-    return this.usersRepository.findOneBy({ id }); // Devuelve un usuario específico por su ID.
+    return this.usersRepository.findOneBy({ id_usuario: id }); // Devuelve un usuario específico por su ID.
   }
 
   findOneByUsername(username: string): Promise<User | null> {
     return this.usersRepository.findOneBy({ username }); // Devuelve un usuario específico por su nombre de usuario.
   }
 
-  findOneByEmail(email: string): Promise<User | null> {
-    return this.usersRepository.findOneBy({ email }); // Devuelve un usuario específico por su correo electrónico.
+  findOneBycorreo(correo: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ correo }); // Devuelve un usuario específico por su correo electrónico.
   }
 
   async remove(id: number): Promise<void> {
@@ -79,7 +79,7 @@ export class UsersService {
   async createSuperAdmin(): Promise<void> {
     const existingAdmin = await this.usersRepository.findOne({
       // Busca un usuario existente con el correo electrónico
-      where: { email: 'admin@lms2.com' }, // Cambia esto por el correo electrónico del superadmin
+      where: { correo: 'admin@lms2.com' }, // Cambia esto por el correo electrónico del superadmin
     });
 
     if (!existingAdmin) {
@@ -90,10 +90,10 @@ export class UsersService {
         username: 'superadmin2', // Cambia esto por el nombre de usuario del superadmin
         //password: hashedPassword, // Cambia esto por un hash en producción
         password: hashedPassword, // Cambia esto por un hash en producción
-        email: 'admin@lms2.com', // Cambia esto por el correo electrónico del superadmin
+        correo: 'admin@lms2.com', // Cambia esto por el correo electrónico del superadmin
         nombre: 'Super2', // Cambia esto por el nombre del superadmin
         apellido: 'Admin2', // Cambia esto por el apellido del superadmin
-        idRol: Role.SuperAdmin,
+        id_perfil: Role.SuperAdmin,
       });
 
       await this.usersRepository.save(superAdmin); // Guarda el nuevo superadmin en la base de datos

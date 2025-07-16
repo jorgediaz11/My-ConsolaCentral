@@ -29,7 +29,7 @@ export class AuthService {
 
     // Crear payload para JWT
     const payload = {
-      sub: user.id,
+      sub: user.id_usuario,
       username: user.username,
     };
 
@@ -40,13 +40,13 @@ export class AuthService {
     return {
       access_token,
       user: {
-        id_usuario: user.id,
+        id_usuario: user.id_usuario,
         username: user.username,
         nombre: user.nombre,
         apellido: user.apellido,
-        email: user.email,
-        idRol: user.idRol,
-        //idColegio: user.idColegio,
+        correo: user.correo,
+        id_perfil: user.id_perfil,
+        //id_colegio: user.id_colegio,
         estado: user.estado,
       },
     };

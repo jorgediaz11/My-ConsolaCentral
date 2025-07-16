@@ -12,6 +12,6 @@ async function bootstrap() {
   app.enableCors(); // Habilita CORS para permitir solicitudes desde otros dominios.
 
   // E04: Iniciar el servidor en el puerto definido
-  await app.listen(process.env.PORT ?? 3000); // Escucha en el puerto especificado por la variable de entorno PORT o en el puerto 3000 por defecto.
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0'); // Escucha en el puerto especificado por la variable de entorno PORT o en el puerto 3000 por defecto.
 }
 void bootstrap(); // E05: Llamada a la función bootstrap para iniciar la aplicación

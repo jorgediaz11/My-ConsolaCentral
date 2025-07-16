@@ -31,21 +31,21 @@ export class ColegiosController {
     return this.colegiosService.create(createColegioDto);
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: number) {
+  @Get(':id_colegio')
+  async findOne(@Param('id_colegio') id: number) {
     return this.colegiosService.findOne(Number(id));
   }
 
   @Put(':id')
   async update(
-    @Param('id') id: number,
+    @Param('id_colegio') id: number,
     @Body() updateColegioDto: UpdateColegioDto,
   ) {
     return this.colegiosService.update(Number(id), updateColegioDto);
   }
 
-  @Delete(':id')
-  async remove(@Param('id') id: number) {
+  @Delete(':id_colegio')
+  async remove(@Param('id_colegio') id: number) {
     await this.colegiosService.remove(Number(id));
     return { message: 'Colegio eliminado correctamente' };
   }

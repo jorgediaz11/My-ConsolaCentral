@@ -15,7 +15,7 @@ export class Colegio {
   telefono: string;
 
   @Column()
-  email: string;
+  correo: string;
 
   @Column()
   estado: string;

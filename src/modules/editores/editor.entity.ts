@@ -12,7 +12,7 @@ export class Editor {
   apellido: string;
 
   @Column()
-  email: string;
+  correo: string;
 
   @Column()
   estado: string;

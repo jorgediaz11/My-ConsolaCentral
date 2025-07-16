@@ -3,6 +3,6 @@ export class CreateColegioDto {
   nombre: string;
   direccion: string;
   telefono: string;
-  email: string;
+  correo: string;
   estado: string;
 }

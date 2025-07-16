@@ -16,13 +16,10 @@ export enum Role {
 export class User {
   // E31: ID autogenerado
   @PrimaryGeneratedColumn({ name: 'id_usuario' }) // Genera automáticamente un ID único para cada usuario.
-  id: number;
+  id_usuario: number;
 
-  // @Column({ name: 'id_colegio' })
-  // idColegio: number;
-
-  @Column({ name: 'id_rol' })
-  idRol: number;
+  @Column({ name: 'id_perfil' })
+  id_perfil: number;
 
   @Column() // Define una columna para el nombre de pila del usuario.
   nombre: string;
@@ -31,7 +28,7 @@ export class User {
   apellido: string;
 
   @Column() // Define una columna para el correo electrónico del usuario.//
-  email: string;
+  correo: string;
 
   // @Column({ name: 'contraseña_hash' })
   // contrasenaHash: string;
@@ -46,12 +43,4 @@ export class User {
   // E33: Contraseña (hash)
   @Column() // Define una columna para la contraseña del usuario.//
   password: string;
-
-  // @Column({
-  //   type: 'enum',
-  //   enum: Role,
-  //   default: Role.STUDENT,
-  // })
-  // role: Role;
-  // E34: Otros campos relevantes...
 }

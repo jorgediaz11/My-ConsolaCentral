@@ -12,7 +12,7 @@ export class Docente {
   apellido: string;
 
   @Column()
-  email: string;
+  correo: string;
 
   @Column()
   especialidad: string;

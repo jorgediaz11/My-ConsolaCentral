@@ -24,7 +24,8 @@ import { GradoModule } from './modules/grado/grado.module';
 import { LeccionModule } from './modules/leccion/leccion.module';
 import { MaterialModule } from './modules/material/material.module';
 import { NivelModule } from './modules/nivel/nivel.module';
-import { RolModule } from './modules/rol/rol.module';
+// Correct the import path if the folder is named 'roles' instead of 'rol'
+import { PerfilModule } from './modules/perfil/perfil.module';
 import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
 import { UnidadModule } from './modules/unidad/unidad.module';
 import { UsersModule } from './modules/users/users.module';
@@ -69,10 +70,10 @@ import { UsersModule } from './modules/users/users.module';
     LeccionModule,
     MaterialModule,
     NivelModule,
-    RolModule,
     TipoMaterialModule,
     UnidadModule,
     UsersModule,
+    PerfilModule,
   ],
   controllers: [AppController],
   providers: [AppService],
