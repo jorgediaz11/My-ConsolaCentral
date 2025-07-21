@@ -10,4 +10,7 @@ export class Area {
 
   @Column({ type: 'boolean', default: true })
   estado: boolean;
+
+  @Column({ type: 'varchar', length: 10 })
+  tipo_curso: string; // 'Interno' o 'Externo'
 }

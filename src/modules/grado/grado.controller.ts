@@ -35,7 +35,7 @@ export class GradoController {
     return this.gradoService.update(id, dto);
   }
 
-  @Delete(':id')
+  @Delete(':id') // Elimina un grado por su ID
   remove(@Param('id') id: number) {
     return this.gradoService.remove(id);
   }

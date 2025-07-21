@@ -1,5 +1,5 @@
 export class CreateGradoDto {
   id_nivel: number;
   nombre: string;
-  estado?: boolean;
+  estado?: boolean; // Opcional, por defecto true
 }

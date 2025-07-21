@@ -4,7 +4,7 @@ import { JwtModule } from '@nestjs/jwt';
 //import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { User } from '../users/user.entity';
+import { User } from '../users/users.entity';
 import { JwtStrategy } from './jwt.strategy';
 import { jwtConstants } from './constans';
 

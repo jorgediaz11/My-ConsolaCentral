@@ -39,4 +39,9 @@ export class EstudiantesService {
   async remove(id: number): Promise<void> {
     await this.estudiantesRepository.delete(id);
   }
+
+  // Buscar estudiantes por colegio
+  async findByColegio(id_colegio: number): Promise<Estudiante[]> {
+    return await this.estudiantesRepository.find({ where: { id_colegio } });
+  }
 }

@@ -16,7 +16,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { AreaModule } from './modules/area/area.module';
 import { ColegiosModule } from './modules/colegios/colegios.module';
-import { CursoModule } from './modules/curso/curso.module';
+import { CursosModule } from './modules/cursos/cursos.module';
 import { DocentesModule } from './modules/docentes/docentes.module';
 import { EditoresModule } from './modules/editores/editores.module';
 import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
@@ -29,6 +29,13 @@ import { PerfilModule } from './modules/perfil/perfil.module';
 import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
 import { UnidadModule } from './modules/unidad/unidad.module';
 import { UsersModule } from './modules/users/users.module';
+// ...nuevos imports
+import { ClasesColModule } from './modules/clases-col/clasescol.module';
+import { ClasesDetModule } from './modules/clases-det/clasesdet.module';
+import { FamiliaModule } from './modules/familia/familia.module';
+import { AdminSecModule } from './modules/adminsec/adminsec.module';
+import { UbigeoModule } from './modules/ubigeo/ubigeo.module';
+import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module';
 
 @Module({
   imports: [
@@ -62,7 +69,7 @@ import { UsersModule } from './modules/users/users.module';
     AreaModule,
     AuthModule,
     ColegiosModule,
-    CursoModule,
+    CursosModule,
     DocentesModule,
     EditoresModule,
     EstudiantesModule,
@@ -74,6 +81,12 @@ import { UsersModule } from './modules/users/users.module';
     UnidadModule,
     UsersModule,
     PerfilModule,
+    ClasesColModule,
+    ClasesDetModule,
+    FamiliaModule,
+    AdminSecModule,
+    UbigeoModule,
+    ActivarLibroModule,
   ],
   controllers: [AppController],
   providers: [AppService],

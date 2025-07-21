@@ -47,4 +47,9 @@ export class EstudiantesController {
     await this.estudiantesService.remove(Number(id));
     return { message: 'Estudiante eliminado correctamente' };
   }
+
+  @Get('colegio/:id_colegio')
+  findByColegio(@Param('id_colegio') id_colegio: number) {
+    return this.estudiantesService.findByColegio(id_colegio);
+  }
 }

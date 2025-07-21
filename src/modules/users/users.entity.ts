@@ -14,6 +14,13 @@ export enum Role {
 
 @Entity('usuario') // <-- aquí el nombre real de la tabla
 export class User {
+  // E32: Nombre de usuario
+  @Column() // Define una columna para el nombre de usuario del usuario.//
+  username: string;
+
+  // E33: Contraseña (hash)
+  @Column() // Define una columna para la contraseña del usuario.//
+  password: string;
   // E31: ID autogenerado
   @PrimaryGeneratedColumn({ name: 'id_usuario' }) // Genera automáticamente un ID único para cada usuario.
   id_usuario: number;
@@ -35,12 +42,4 @@ export class User {
 
   @Column({ type: 'boolean' })
   estado: boolean;
-
-  // E32: Nombre de usuario
-  @Column() // Define una columna para el nombre de usuario del usuario.//
-  username: string;
-
-  // E33: Contraseña (hash)
-  @Column() // Define una columna para la contraseña del usuario.//
-  password: string;
 }

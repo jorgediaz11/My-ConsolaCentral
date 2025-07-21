@@ -9,7 +9,7 @@ import { Area } from '../area/area.entity';
 import { Grado } from '../grado/grado.entity';
 
 @Entity('curso')
-export class Curso {
+export class Cursos {
   @PrimaryGeneratedColumn({ name: 'id_curso' })
   id_curso: number;
 
@@ -29,4 +29,10 @@ export class Curso {
 
   @Column({ type: 'boolean', default: true })
   estado: boolean;
+
+  @Column({ type: 'varchar', length: 10 })
+  tipo_curso: string; // 'Interno' o 'Externo'
+
+  @Column({ type: 'int' })
+  id_colegio: number; // ID del colegio afiliado
 }

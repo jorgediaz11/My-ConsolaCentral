@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+} from '@nestjs/common';
 import { NivelService } from './nivel.service';
 import { CreateNivelDto } from './dto/CreateNivelDto';
 import { UpdateNivelDto } from './dto/UpdateNivelDto';

@@ -1,5 +1,3 @@
-import { Role } from 'src/modules/users/user.entity';
-
 export class CreateUserDto {
   username: string;
   password: string;
@@ -7,6 +5,5 @@ export class CreateUserDto {
   apellido: string;
   correo: string;
   id_perfil: number;
-  // otros campos según tu modelo...
-  role: Role;
+  estado: boolean;
 }

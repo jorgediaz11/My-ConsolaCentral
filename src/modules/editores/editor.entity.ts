@@ -5,15 +5,33 @@ export class Editor {
   @PrimaryGeneratedColumn({ name: 'id_editor' })
   id_editor: number;
 
-  @Column()
+  // @Column()
+  // nombre: string;
+
+  // @Column()
+  // apellido: string;
+
+  // @Column()
+  // correo: string;
+
+  // @Column()
+  // estado: string;
+
+  @Column({ type: 'varchar', length: 100 })
   nombre: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   apellido: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   correo: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 10 })
   estado: string;
+
+  @Column({ type: 'int' })
+  id_perfil: number;
+
+  @Column('int', { array: true })
+  id_cursos: number[]; // Cursos a los que tiene acceso
 }

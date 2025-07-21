@@ -41,4 +41,9 @@ export class ColegiosService {
   async remove(id: number): Promise<void> {
     await this.colegiosRepository.delete(id);
   }
+
+  // Nuevo método para filtrar por ubigeo
+  async findByUbigeo(ubigeo: string): Promise<Colegio[]> {
+    return this.colegiosRepository.find({ where: { ubigeo } });
+  }
 }

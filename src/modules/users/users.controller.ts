@@ -20,8 +20,8 @@ import { UsersService } from './users.service';
 import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreateUserDto } from './dto/CreateUserDto';
-import { Param, Put, Delete } from '@nestjs/common';
 import { UpdateUserDto } from './dto/UpdateUserDto';
+import { Param, Put, Delete } from '@nestjs/common';
 
 @Controller('users')
 @UseGuards(JwtAuthGuard)

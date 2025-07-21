@@ -47,4 +47,9 @@ export class EditoresController {
     await this.editoresService.remove(Number(id));
     return { message: 'Editor eliminado correctamente' };
   }
+
+  @Get('curso/:id_curso')
+  findByCurso(@Param('id_curso') id_curso: number) {
+    return this.editoresService.findByCurso(id_curso);
+  }
 }

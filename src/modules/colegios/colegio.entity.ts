@@ -5,18 +5,36 @@ export class Colegio {
   @PrimaryGeneratedColumn({ name: 'id_colegio' })
   id_colegio: number;
 
-  @Column()
+  // @Column()
+  // nombre: string;
+
+  // @Column()
+  // direccion: string;
+
+  // @Column()
+  // telefono: string;
+
+  // @Column()
+  // correo: string;
+
+  // @Column()
+  // estado: string;
+
+  @Column({ type: 'varchar', length: 100 })
   nombre: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200 })
   direccion: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 20 })
   telefono: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   correo: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 10 })
   estado: string;
+
+  @Column({ type: 'varchar', length: 6 })
+  ubigeo: string; // Nuevo campo para el código de distrito
 }

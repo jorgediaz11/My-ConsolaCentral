@@ -49,4 +49,10 @@ export class ColegiosController {
     await this.colegiosService.remove(Number(id));
     return { message: 'Colegio eliminado correctamente' };
   }
+
+  // Nuevo endpoint para filtrar por ubigeo
+  @Get('ubigeo/:ubigeo')
+  findByUbigeo(@Param('ubigeo') ubigeo: string) {
+    return this.colegiosService.findByUbigeo(ubigeo);
+  }
 }

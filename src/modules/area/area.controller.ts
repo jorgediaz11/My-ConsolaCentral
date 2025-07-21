@@ -39,4 +39,10 @@ export class AreaController {
   remove(@Param('id') id: number) {
     return this.areaService.remove(id);
   }
+
+  // Endpoint para filtrar por tipo_curso e id_colegio
+  @Get('tipo/:tipo_curso')
+  findByTipo(@Param('tipo_curso') tipo_curso: string) {
+    return this.areaService.findByTipo(tipo_curso);
+  }
 }

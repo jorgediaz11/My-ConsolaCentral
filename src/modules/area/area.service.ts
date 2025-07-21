@@ -33,4 +33,9 @@ export class AreaService {
   async remove(id: number): Promise<void> {
     await this.areaRepository.delete(id);
   }
+
+  // Ejemplo: filtrar por tipo_curso
+  async findByTipo(tipo_curso: string): Promise<Area[]> {
+    return this.areaRepository.find({ where: { tipo_curso } });
+  }
 }

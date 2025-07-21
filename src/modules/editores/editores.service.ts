@@ -39,4 +39,12 @@ export class EditoresService {
   async remove(id: number): Promise<void> {
     await this.editoresRepository.delete(id);
   }
+
+  // Buscar editores por curso
+  async findByCurso(id_curso: number): Promise<Editor[]> {
+    return await this.editoresRepository
+      .createQueryBuilder('editor')
+      .where(':id_curso = ANY(editor.id_cursos)', { id_curso })
+      .getMany();
+  }
 }

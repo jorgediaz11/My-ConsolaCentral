@@ -39,4 +39,9 @@ export class DocentesService {
   async remove(id: number): Promise<void> {
     await this.docentesRepository.delete(id);
   }
+
+  // Buscar docentes por colegio
+  async findByColegio(id_colegio: number): Promise<Docente[]> {
+    return this.docentesRepository.find({ where: { id_colegio } });
+  }
 }

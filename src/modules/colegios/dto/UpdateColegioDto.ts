@@ -1,4 +1,8 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateColegioDto } from './CreateColegioDto';
-
-export class UpdateColegioDto extends PartialType(CreateColegioDto) {}
+export class UpdateColegioDto {
+  nombre?: string;
+  direccion?: string;
+  telefono?: string;
+  correo?: string;
+  estado?: string;
+  ubigeo?: string; // Nuevo campo para el código de distrito
+}

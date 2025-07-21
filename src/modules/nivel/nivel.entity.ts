@@ -9,5 +9,5 @@ export class Nivel {
   nombre: string;
 
   @Column({ type: 'boolean', default: true })
-  estado: boolean;
+  estado: boolean; // Opcional, por defecto true
 }

@@ -20,5 +20,5 @@ export class Grado {
   nombre: string;
 
   @Column({ type: 'boolean', default: true })
-  estado: boolean;
+  estado: boolean; // Opcional, por defecto true
 }
