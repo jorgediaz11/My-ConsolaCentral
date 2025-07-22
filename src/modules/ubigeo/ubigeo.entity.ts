@@ -1,9 +1,9 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 
-@Entity('dep')
+@Entity('ubigeo')
 export class Ubigeo {
-  @PrimaryColumn({ name: 'ubigeo', type: 'varchar', length: 6 })
-  ubigeo: string;
+  @PrimaryColumn({ name: 'id_ubigeo', type: 'varchar', length: 6 })
+  id_ubigeo: string;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
   departamento?: string;

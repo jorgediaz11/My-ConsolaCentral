@@ -28,7 +28,7 @@ import { NivelModule } from './modules/nivel/nivel.module';
 import { PerfilModule } from './modules/perfil/perfil.module';
 import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
 import { UnidadModule } from './modules/unidad/unidad.module';
-import { UsersModule } from './modules/users/users.module';
+import { UsuariosModule } from './modules/usuarios/usuarios.module';
 // ...nuevos imports
 import { ClasesColModule } from './modules/clases-col/clasescol.module';
 import { ClasesDetModule } from './modules/clases-det/clasesdet.module';
@@ -79,7 +79,7 @@ import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module'
     NivelModule,
     TipoMaterialModule,
     UnidadModule,
-    UsersModule,
+    UsuariosModule,
     PerfilModule,
     ClasesColModule,
     ClasesDetModule,

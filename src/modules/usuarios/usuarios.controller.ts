@@ -16,23 +16,23 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { UsuariosService } from './usuarios.service';
 import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateUserDto } from './dto/CreateUserDto';
-import { UpdateUserDto } from './dto/UpdateUserDto';
+import { CreateUsuariosDto } from './dto/CreateUsuariosDto';
+import { UpdateUsuariosDto } from './dto/UpdateUsuariosDto';
 import { Param, Put, Delete } from '@nestjs/common';
 
-@Controller('users')
+@Controller('usuarios')
 @UseGuards(JwtAuthGuard)
-export class UsersController {
-  constructor(private readonly userService: UsersService) {} // Constructor que recibe una instancia del servicio UsersService.
+export class UsuariosController {
+  constructor(private readonly usuariosService: UsuariosService) {} // Constructor que recibe una instancia del servicio UsuariosService.
 
-  // E13: Endpoint GET /users - Listar todos los usuarios
+  // E13: Endpoint GET /usuarios - Listar todos los usuarios
   @Get()
   list() {
     // E14: Llama al servicio para obtener todos los usuarios
-    return this.userService.findAll();
+    return this.usuariosService.findAll();
   }
 
   // E15: Endpoint GET /users/:id - Obtener usuario por ID
@@ -41,32 +41,30 @@ export class UsersController {
   // E17: Endpoint POST /users - Crear un nuevo usuario
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUsuariosDto: CreateUsuariosDto) {
     // E18: Llama al servicio para crear un usuario
-    return this.userService.create(createUserDto);
+    return this.usuariosService.create(createUsuariosDto);
   }
 
-  /* findOne(id: number): Promise<User | null> {
-    return this.usersRepository.findOneBy({ id });
+  @Get(':id_usuario')
+  async findOne(@Param('id_usuario') id: number) {
+    return this.usuariosService.findOne(Number(id));
   }
 
-  async remove(id: number): Promise<void> {
-    await this.usersRepository.delete(id);
-  } */
-
-  @Get(':id')
-  async findOne(@Param('id') id: number) {
-    return this.userService.findOne(Number(id));
+  @Put(':id_usuario')
+  async update(
+    @Param('id_usuario') id_usuario: number,
+    @Body() updateUsuariosDto: UpdateUsuariosDto,
+  ) {
+    return await this.usuariosService.update(
+      Number(id_usuario),
+      updateUsuariosDto,
+    );
   }
 
-  @Put(':id')
-  async update(@Param('id') id: number, @Body() updateUserDto: UpdateUserDto) {
-    return await this.userService.update(Number(id), updateUserDto);
-  }
-
-  @Delete(':id')
-  async remove(@Param('id') id: number) {
-    await this.userService.remove(Number(id));
+  @Delete(':id_usuario')
+  async remove(@Param('id_usuario') id_usuario: number) {
+    await this.usuariosService.remove(Number(id_usuario));
     return { message: 'Usuario eliminado correctamente' };
   }
 }

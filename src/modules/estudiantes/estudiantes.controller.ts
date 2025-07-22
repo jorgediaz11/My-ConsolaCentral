@@ -52,4 +52,18 @@ export class EstudiantesController {
   findByColegio(@Param('id_colegio') id_colegio: number) {
     return this.estudiantesService.findByColegio(id_colegio);
   }
+
+  // filepath: [estudiantes.controller.ts](http://_vscodecontentref_/1)
+  @Get('filtro')
+  findByColegioProfesor() {
+    // @Query('id_seccion') id_seccion: number, // @Query('id_grado') id_grado: number, // @Query('id_nivel') id_nivel: number, // @Query('id_profesor') id_profesor: number, // @Query('id_colegio') id_colegio: number,
+    // Use id_profesor and id_seccion in the service call or logic
+    // return this.estudiantesService.findByColegioProfesor(
+    //   Number(id_colegio),
+    //   Number(id_profesor),
+    //   Number(id_nivel),
+    //   Number(id_grado),
+    //   Number(id_seccion),
+    // );
+  }
 }

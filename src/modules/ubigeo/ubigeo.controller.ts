@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+} from '@nestjs/common';
 import { UbigeoService } from './ubigeo.service';
 import { CreateUbigeoDto } from './dto/CreateUbigeoDto';
 import { UpdateUbigeoDto } from './dto/UpdateUbigeoDto';
@@ -28,12 +36,12 @@ export class UbigeoController {
   }
 
   @Put(':ubigeo')
-  update(@Param('ubigeo') ubigeo: string, @Body() dto: UpdateUbigeoDto) {
+  update(@Param('id_ubigeo') ubigeo: string, @Body() dto: UpdateUbigeoDto) {
     return this.ubigeoService.update(ubigeo, dto);
   }
 
   @Delete(':ubigeo')
-  remove(@Param('ubigeo') ubigeo: string) {
+  remove(@Param('id_ubigeo') ubigeo: string) {
     return this.ubigeoService.remove(ubigeo);
   }
 }

@@ -16,7 +16,7 @@ export class UbigeoService {
     return this.ubigeoRepository.find({
       where: { tipo: 'A' },
       order: { departamento: 'ASC' },
-      select: ['ubigeo', 'departamento'],
+      select: ['id_ubigeo', 'departamento'],
     });
   }
 
@@ -26,10 +26,10 @@ export class UbigeoService {
     return this.ubigeoRepository.find({
       where: {
         tipo: 'B',
-        ubigeo: Raw((alias) => `LEFT(${alias}, 2) = :dep`, { dep: depCode }),
+        id_ubigeo: Raw((alias) => `LEFT(${alias}, 2) = :dep`, { dep: depCode }),
       },
       order: { provincia: 'ASC' },
-      select: ['ubigeo', 'provincia'],
+      select: ['id_ubigeo', 'provincia'],
     });
   }
 
@@ -39,10 +39,12 @@ export class UbigeoService {
     return this.ubigeoRepository.find({
       where: {
         tipo: 'C',
-        ubigeo: Raw((alias) => `LEFT(${alias}, 4) = :prov`, { prov: provCode }),
+        id_ubigeo: Raw((alias) => `LEFT(${alias}, 4) = :prov`, {
+          prov: provCode,
+        }),
       },
       order: { distrito: 'ASC' },
-      select: ['ubigeo', 'distrito'],
+      select: ['id_ubigeo', 'distrito'],
     });
   }
 
@@ -51,12 +53,15 @@ export class UbigeoService {
     return await this.ubigeoRepository.save(ubigeo);
   }
 
-  async update(ubigeo: string, dto: UpdateUbigeoDto): Promise<Ubigeo | null> {
-    await this.ubigeoRepository.update(ubigeo, dto);
-    return this.ubigeoRepository.findOneBy({ ubigeo });
+  async update(
+    id_ubigeo: string,
+    dto: UpdateUbigeoDto,
+  ): Promise<Ubigeo | null> {
+    await this.ubigeoRepository.update(id_ubigeo, dto);
+    return this.ubigeoRepository.findOneBy({ id_ubigeo });
   }
 
-  async remove(ubigeo: string): Promise<void> {
-    await this.ubigeoRepository.delete(ubigeo);
+  async remove(id_ubigeo: string): Promise<void> {
+    await this.ubigeoRepository.delete(id_ubigeo);
   }
 }

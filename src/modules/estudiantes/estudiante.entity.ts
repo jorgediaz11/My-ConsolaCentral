@@ -5,20 +5,6 @@ export class Estudiante {
   @PrimaryGeneratedColumn({ name: 'id_estudiante' })
   id_estudiante: number;
 
-  // @Column()
-  // nombre: string;
-
-  // @Column()
-  // apellido: string;
-
-  // @Column()
-  // correo: string;
-
-  // @Column()
-  // grado: string;
-
-  // @Column()
-  // estado: string;
   @Column({ type: 'varchar', length: 100 })
   nombre: string;
 

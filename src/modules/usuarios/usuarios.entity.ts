@@ -13,7 +13,7 @@ export enum Role {
 }
 
 @Entity('usuario') // <-- aquí el nombre real de la tabla
-export class User {
+export class Usuarios {
   // E32: Nombre de usuario
   @Column() // Define una columna para el nombre de usuario del usuario.//
   username: string;

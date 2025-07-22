@@ -5,18 +5,6 @@ export class Editor {
   @PrimaryGeneratedColumn({ name: 'id_editor' })
   id_editor: number;
 
-  // @Column()
-  // nombre: string;
-
-  // @Column()
-  // apellido: string;
-
-  // @Column()
-  // correo: string;
-
-  // @Column()
-  // estado: string;
-
   @Column({ type: 'varchar', length: 100 })
   nombre: string;
 

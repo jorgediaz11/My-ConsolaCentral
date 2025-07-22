@@ -51,8 +51,19 @@ export class ColegiosController {
   }
 
   // Nuevo endpoint para filtrar por ubigeo
-  @Get('ubigeo/:ubigeo')
-  findByUbigeo(@Param('ubigeo') ubigeo: string) {
-    return this.colegiosService.findByUbigeo(ubigeo);
+  @Get('ubigeo/:id_ubigeo')
+  findByUbigeo(@Param('id_ubigeo') id_ubigeo: string) {
+    return this.colegiosService.findByUbigeo(id_ubigeo);
+  }
+
+  @Get('admin/:id_perfil/:id_colegio')
+  findByAdminPerfil(
+    @Param('id_perfil') id_perfil: number,
+    @Param('id_colegio') id_colegio: number,
+  ) {
+    return this.colegiosService.findByAdminPerfil(
+      Number(id_perfil),
+      Number(id_colegio),
+    );
   }
 }

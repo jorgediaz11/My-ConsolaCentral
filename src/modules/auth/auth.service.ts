@@ -4,21 +4,21 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../users/users.entity';
+import { Usuarios } from '../usuarios/usuarios.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
     private jwtService: JwtService,
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    @InjectRepository(Usuarios)
+    private usuariosRepository: Repository<Usuarios>,
   ) {}
 
   async login(loginDto: { username: string; password: string }) {
     const { username, password } = loginDto;
 
     // Buscar usuario por username
-    const user = await this.usersRepository.findOne({
+    const user = await this.usuariosRepository.findOne({
       where: { username },
     });
 

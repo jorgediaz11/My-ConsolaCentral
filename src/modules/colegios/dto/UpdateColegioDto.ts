@@ -4,5 +4,5 @@ export class UpdateColegioDto {
   telefono?: string;
   correo?: string;
   estado?: string;
-  ubigeo?: string; // Nuevo campo para el código de distrito
+  id_ubigeo?: string; // Nuevo campo para el código de distrito
 }

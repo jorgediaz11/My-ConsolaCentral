@@ -43,7 +43,19 @@ export class ColegiosService {
   }
 
   // Nuevo método para filtrar por ubigeo
-  async findByUbigeo(ubigeo: string): Promise<Colegio[]> {
-    return this.colegiosRepository.find({ where: { ubigeo } });
+  async findByUbigeo(id_ubigeo: string): Promise<Colegio[]> {
+    return this.colegiosRepository.find({ where: { id_ubigeo } });
+  }
+
+  async findByAdminPerfil(
+    id_perfil: number,
+    id_colegio: number,
+  ): Promise<Colegio[]> {
+    return this.colegiosRepository.find({
+      where: {
+        id_colegio,
+        // id_perfil, // Asegúrate que este campo exista en la entidad y tabla
+      },
+    });
   }
 }
