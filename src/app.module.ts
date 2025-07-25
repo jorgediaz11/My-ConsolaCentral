@@ -36,6 +36,7 @@ import { FamiliaModule } from './modules/familia/familia.module';
 import { AdminSecModule } from './modules/adminsec/adminsec.module';
 import { UbigeoModule } from './modules/ubigeo/ubigeo.module';
 import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module';
+import { LibrosModule } from './modules/libro/libros.module';
 
 @Module({
   imports: [
@@ -87,6 +88,7 @@ import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module'
     AdminSecModule,
     UbigeoModule,
     ActivarLibroModule,
+    LibrosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

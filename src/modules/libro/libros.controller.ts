@@ -7,7 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { LibrosService } from './Libros.service';
+import { LibrosService } from './libros.service';
 import { CreateLibrosDto } from './dto/CreateLibrosDto';
 import { UpdateLibrosDto } from './dto/UpdateLibrosDto';
 

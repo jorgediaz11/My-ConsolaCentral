@@ -83,11 +83,10 @@ export class UsuariosService {
       const hashedPassword = await bcrypt.hash('root:toor', saltRounds); // Cambia esto por un hash en producción
 
       const superAdmin = this.usuariosRepository.create({
-        username: 'superadmin2', // Cambia esto por el nombre de usuario del superadmin
-        //password: hashedPassword, // Cambia esto por un hash en producción
+        username: 'superadmin2', // Asegúrate que 'username' existe en Usuarios entity
         password: hashedPassword, // Cambia esto por un hash en producción
         correo: 'admin@lms2.com', // Cambia esto por el correo electrónico del superadmin
-        nombre: 'Super2', // Cambia esto por el nombre del superadmin
+        nombres: 'Super2', // Cambia esto por el nombre del superadmin (ajustado a 'nombres')
         apellido: 'Admin2', // Cambia esto por el apellido del superadmin
         id_perfil: Role.SuperAdmin,
       });

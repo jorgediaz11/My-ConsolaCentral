@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ActivarLibro } from './activarlibro.entity';
 import { Usuarios } from '../usuarios/usuarios.entity';
-import { Libro } from '../libros/Libros.entity'; // Asegúrate de que Libro es una clase de entidad exportada correctamente
+import { Libro } from '../libro/libros.entity'; // Asegúrate de que Libro es una clase de entidad exportada correctamente
 
 @Injectable()
 export class ActivarLibroService {

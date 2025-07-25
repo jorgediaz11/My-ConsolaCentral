@@ -38,8 +38,8 @@ export class ColegiosService {
   }
 
   // Eliminar un colegio por ID
-  async remove(id: number): Promise<void> {
-    await this.colegiosRepository.delete(id);
+  async remove(id_ubigeo: number): Promise<void> {
+    await this.colegiosRepository.delete(id_ubigeo);
   }
 
   // Nuevo método para filtrar por ubigeo
@@ -47,6 +47,11 @@ export class ColegiosService {
     return this.colegiosRepository.find({ where: { id_ubigeo } });
   }
 
+  async findByUbigeoDistrito(id_ubigeo: string): Promise<Colegio[]> {
+    return this.colegiosRepository.find({
+      where: { id_ubigeo: id_ubigeo }, // El campo debe coincidir exactamente
+    });
+  }
   async findByAdminPerfil(
     id_perfil: number,
     id_colegio: number,

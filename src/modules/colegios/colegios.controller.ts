@@ -56,6 +56,11 @@ export class ColegiosController {
     return this.colegiosService.findByUbigeo(id_ubigeo);
   }
 
+  @Get('distrito/:id_ubigeo')
+  findByUbigeoDistrito(@Param('id_ubigeo') id_ubigeo: string) {
+    return this.colegiosService.findByUbigeoDistrito(id_ubigeo);
+  }
+
   @Get('admin/:id_perfil/:id_colegio')
   findByAdminPerfil(
     @Param('id_perfil') id_perfil: number,

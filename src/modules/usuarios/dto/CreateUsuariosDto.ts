@@ -1,7 +1,7 @@
 export class CreateUsuariosDto {
   username: string;
   password: string;
-  nombre: string;
+  nombres: string;
   apellido: string;
   correo: string;
   id_perfil: number;

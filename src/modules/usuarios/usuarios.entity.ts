@@ -32,7 +32,7 @@ export class Usuarios {
   id_colegio: number; // Nuevo campo
 
   @Column() // Define una columna para el nombre de pila del usuario.
-  nombre: string;
+  nombres: string;
 
   @Column() // Define una columna para el apellido del usuario.//
   apellido: string;
