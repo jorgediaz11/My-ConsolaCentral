@@ -28,6 +28,9 @@ export class Usuarios {
   @Column({ name: 'id_perfil' })
   id_perfil: number;
 
+  @Column({ type: 'int', nullable: true })
+  id_colegio: number; // Nuevo campo
+
   @Column() // Define una columna para el nombre de pila del usuario.
   nombre: string;
 

@@ -5,5 +5,6 @@ export class UpdateUsuariosDto {
   apellido?: string;
   correo?: string;
   id_perfil?: number;
+  id_colegio?: number; // Nuevo campo
   estado?: boolean;
 }
