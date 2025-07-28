@@ -12,13 +12,9 @@ export class EditoresService {
     private editoresRepository: Repository<Editor>,
   ) {}
 
+  // Listar todos los editores
   findAll(): Promise<Editor[]> {
-    return this.editoresRepository.find();
-  }
-
-  async create(createEditorDto: CreateEditorDto): Promise<Editor> {
-    const editor = this.editoresRepository.create(createEditorDto);
-    return await this.editoresRepository.save(editor);
+    return this.editoresRepository.find({ where: { id_perfil: 6 } });
   }
 
   // Obtener un editor por ID
@@ -26,12 +22,15 @@ export class EditoresService {
     return this.editoresRepository.findOneBy({ id_editor: id });
   }
 
+  // Crear un editor
+  async create(dto: CreateEditorDto): Promise<Editor> {
+    const editor: Editor = this.editoresRepository.create(dto);
+    return await this.editoresRepository.save(editor);
+  }
+
   // Actualizar un editor
-  async update(
-    id: number,
-    updateEditorDto: UpdateEditorDto,
-  ): Promise<Editor | null> {
-    await this.editoresRepository.update(id, updateEditorDto);
+  async update(id: number, dto: UpdateEditorDto): Promise<Editor | null> {
+    await this.editoresRepository.update(id, dto);
     return this.findOne(id);
   }
 
@@ -40,11 +39,27 @@ export class EditoresService {
     await this.editoresRepository.delete(id);
   }
 
-  // Buscar editores por curso
-  async findByCurso(id_curso: number): Promise<Editor[]> {
-    return await this.editoresRepository
-      .createQueryBuilder('editor')
-      .where(':id_curso = ANY(editor.id_cursos)', { id_curso })
-      .getMany();
+  // Buscar editores con perfil docente (id_perfil = 6)
+  async findAllEditores(): Promise<any[]> {
+    return this.editoresRepository.find({
+      where: { id_perfil: 6 },
+      select: [
+        'nombres',
+        'apellido',
+        'correo',
+        'telefono',
+        'direccion',
+        'fecha_nacimiento',
+        'estado',
+        //'docente_titulo',
+        'foto_perfil',
+        'ultimo_acceso',
+      ],
+    });
+  }
+
+  // Listar docentes por colegio
+  async findByColegio(id_colegio: number): Promise<Editor[]> {
+    return this.editoresRepository.find({ where: { id_colegio } });
   }
 }

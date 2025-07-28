@@ -43,7 +43,7 @@ export class CursosController {
   // Endpoint para filtrar por tipo_curso e id_colegio
   @Get('tipo/:tipo_curso/colegio/:id_colegio')
   findByTipoYColegio(
-    @Param('tipo_curso') tipo_curso: string,
+    @Param('tipo_curso') tipo_curso: string, // 'Interno' o 'Externo'
     @Param('id_colegio') id_colegio: number,
   ) {
     return this.cursosService.findByTipoYColegio(tipo_curso, id_colegio);

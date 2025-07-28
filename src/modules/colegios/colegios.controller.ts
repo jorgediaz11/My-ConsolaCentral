@@ -31,6 +31,11 @@ export class ColegiosController {
     return this.colegiosService.create(createColegioDto);
   }
 
+  @Get('clientes')
+  findClientes() {
+    return this.colegiosService.findClientes();
+  }
+
   @Get(':id_colegio')
   async findOne(@Param('id_colegio') id: number) {
     return this.colegiosService.findOne(Number(id));

@@ -22,11 +22,11 @@ import { EditoresModule } from './modules/editores/editores.module';
 import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
 import { GradoModule } from './modules/grado/grado.module';
 import { LeccionModule } from './modules/leccion/leccion.module';
+import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
 import { MaterialModule } from './modules/material/material.module';
 import { NivelModule } from './modules/nivel/nivel.module';
 // Correct the import path if the folder is named 'roles' instead of 'rol'
 import { PerfilModule } from './modules/perfil/perfil.module';
-import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
 import { UnidadModule } from './modules/unidad/unidad.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 // ...nuevos imports

@@ -39,7 +39,7 @@ export class CursosService {
 
   // Ejemplo: filtrar por tipo_curso e id_colegio
   async findByTipoYColegio(
-    tipo_curso: string,
+    tipo_curso: string, // 'Interno' o 'Externo'
     id_colegio: number,
   ): Promise<Cursos[]> {
     return this.cursosRepository.find({ where: { tipo_curso, id_colegio } });

@@ -20,9 +20,9 @@ export class MaterialController {
     return this.service.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.service.findOne(id);
+  @Get(':id_material')
+  findOne(@Param('id_material') id_material: number) {
+    return this.service.findOne(id_material);
   }
 
   @Post()

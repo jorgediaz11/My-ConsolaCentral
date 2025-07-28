@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Colegio } from './colegio.entity';
-import { ColegiosController } from './colegios.controller';
 import { ColegiosService } from './colegios.service';
+import { ColegiosController } from './colegios.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Colegio])], // Importa la entidad Colegio.

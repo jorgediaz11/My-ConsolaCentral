@@ -26,6 +26,6 @@ export class ClasesCol {
   @Column({ type: 'varchar', length: 255, nullable: true })
   observaciones: string;
 
-  @Column({ type: 'varchar', length: 10 })
-  estado: string;
+  @Column({ type: 'boolean' })
+  estado: boolean;
 }

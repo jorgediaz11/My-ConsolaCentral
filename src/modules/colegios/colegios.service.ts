@@ -63,4 +63,17 @@ export class ColegiosService {
       },
     });
   }
+
+  async findClientes(): Promise<Colegio[]> {
+    return this.colegiosRepository.find({
+      where: {
+        colegio_cliente: true,
+        estado: true,
+      },
+    });
+  }
+  catch(error) {
+    console.error('Error en findClientes:', error);
+    throw error;
+  }
 }

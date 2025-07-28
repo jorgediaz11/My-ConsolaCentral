@@ -24,8 +24,8 @@ export class Cursos {
   @Column({ type: 'varchar', length: 100 })
   nombre: string;
 
-  @Column({ type: 'varchar', length: 12 })
-  codigo_libro: string;
+  @Column({ type: 'varchar', length: 10 })
+  codigo_libro: string; // Nuevo campo: código del libro
 
   @Column({ type: 'boolean', default: true })
   estado: boolean;

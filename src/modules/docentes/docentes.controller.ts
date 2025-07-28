@@ -7,10 +7,10 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { DocentesService } from './docentes.service';
-import { JwtAuthGuard } from '../../modules/auth/jwt-auth.guard';
-import { CreateDocenteDto } from './dto/CreateDocenteDto';
 import { Param, Put, Delete } from '@nestjs/common';
+import { JwtAuthGuard } from '../../modules/auth/jwt-auth.guard';
+import { DocentesService } from './docentes.service';
+import { CreateDocenteDto } from './dto/CreateDocenteDto';
 import { UpdateDocenteDto } from './dto/UpdateDocenteDto';
 
 @Controller('docentes')
@@ -23,23 +23,20 @@ export class DocentesController {
     return this.docentesService.findAll();
   }
 
-  @Post()
-  @HttpCode(HttpStatus.CREATED)
-  async create(@Body() createDocenteDto: CreateDocenteDto) {
-    return this.docentesService.create(createDocenteDto);
-  }
-
   @Get(':id')
   async findOne(@Param('id') id: number) {
     return this.docentesService.findOne(Number(id));
   }
 
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  async create(@Body() dto: CreateDocenteDto) {
+    return this.docentesService.create(dto);
+  }
+
   @Put(':id')
-  async update(
-    @Param('id') id: number,
-    @Body() updateDocenteDto: UpdateDocenteDto,
-  ) {
-    return this.docentesService.update(Number(id), updateDocenteDto);
+  async update(@Param('id') id: number, @Body() dto: UpdateDocenteDto) {
+    return this.docentesService.update(Number(id), dto);
   }
 
   @Delete(':id')

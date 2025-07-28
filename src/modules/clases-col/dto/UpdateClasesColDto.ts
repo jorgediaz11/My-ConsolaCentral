@@ -6,5 +6,5 @@ export class UpdateClasesColDto {
   id_seccion?: number;
   id_curso?: number;
   observaciones?: string;
-  estado?: string;
+  estado?: boolean;
 }

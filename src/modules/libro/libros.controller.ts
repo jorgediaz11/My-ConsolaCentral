@@ -20,9 +20,9 @@ export class LibrosController {
     return this.librosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.librosService.findOne(id);
+  @Get(':id_libro')
+  findOne(@Param('id_libro') id_libro: number) {
+    return this.librosService.findOne(id_libro);
   }
 
   @Post()
@@ -30,13 +30,13 @@ export class LibrosController {
     return this.librosService.create(dto);
   }
 
-  @Put(':id')
-  update(@Param('id') id: number, @Body() dto: UpdateLibrosDto) {
-    return this.librosService.update(id, dto);
+  @Put(':id_libro')
+  update(@Param('id_libro') id_libro: number, @Body() dto: UpdateLibrosDto) {
+    return this.librosService.update(id_libro, dto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.librosService.remove(id);
+  @Delete(':id_libro')
+  remove(@Param('id_libro') id_libro: number) {
+    return this.librosService.remove(id_libro);
   }
 }

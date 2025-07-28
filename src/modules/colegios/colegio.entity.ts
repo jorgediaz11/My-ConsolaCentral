@@ -17,9 +17,12 @@ export class Colegio {
   @Column({ type: 'varchar', length: 100 })
   correo: string;
 
-  @Column({ type: 'varchar', length: 10 })
-  estado: string;
+  @Column({ type: 'boolean', default: true })
+  estado: boolean;
 
   @Column({ type: 'varchar', length: 6 })
   id_ubigeo: string; // Nuevo campo para el código de distrito
+
+  @Column({ type: 'boolean', default: false })
+  colegio_cliente: boolean;
 }

@@ -33,5 +33,5 @@ export class Material {
   idConfiguracion: number;
 
   @Column({ type: 'boolean' })
-  estado: boolean;
+  estado: boolean; // Indica si el material está activo o inactivo
 }

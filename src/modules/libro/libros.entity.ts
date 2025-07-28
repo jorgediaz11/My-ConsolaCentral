@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('Libros')
+@Entity('libros')
 export class Libro {
   @PrimaryGeneratedColumn({ name: 'id_libro' })
   id_libro: number;
@@ -14,6 +14,6 @@ export class Libro {
   @Column({ type: 'varchar', length: 20 })
   estado: string;
 
-  @Column({ type: 'varchar', length: 20 })
-  codigo_libro: string;
+  // @Column({ type: 'varchar', length: 20 })
+  // codigo_libro: string;
 }

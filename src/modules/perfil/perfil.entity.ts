@@ -12,5 +12,5 @@ export class Perfil {
   descripcion: string;
 
   @Column({ type: 'boolean' })
-  estado: boolean;
+  estado: boolean; // Nuevo campo para el estado del perfil
 }

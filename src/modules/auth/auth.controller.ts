@@ -2,8 +2,8 @@
 // It imports necessary modules and services, defines the controller, and implements a sign-in endpoint.
 // E23: Controlador para endpoints de autenticación
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { LoginDto } from './dto/login.dto';
+import { AuthService } from './auth.service'; // 07 Import the AuthService for handling authentication logic
+import { LoginDto } from './dto/login.dto'; // DTO for login data
 
 @Controller('auth')
 export class AuthController {

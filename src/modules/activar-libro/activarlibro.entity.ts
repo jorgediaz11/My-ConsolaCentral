@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('activar_libro')
+@Entity('activarlibro')
 export class ActivarLibro {
   @PrimaryGeneratedColumn({ name: 'id_activacion' })
   id_activacion: number;
@@ -20,6 +20,9 @@ export class ActivarLibro {
   @Column({ type: 'varchar', length: 20 })
   codigo_libro: string;
 
-  @Column({ type: 'varchar', length: 10 })
-  estado: string;
+  @Column({ type: 'boolean', default: false })
+  estado: boolean;
+
+  @Column({ type: 'int' })
+  id_grado: number;
 }

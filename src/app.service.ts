@@ -4,7 +4,6 @@
 // El método `about` devuelve un objeto que contiene metadatos sobre la aplicación,
 // como su nombre, descripción, versión y autor. Este servicio se puede inyectar en controladores u otros servicios
 // para proporcionar esta información cuando sea necesario.
-// src/app.service.ts
 
 // E09: Definición del controlador raíz para el endpoint GET /
 import { Injectable } from '@nestjs/common';

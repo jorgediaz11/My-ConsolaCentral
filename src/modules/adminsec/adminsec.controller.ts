@@ -1,22 +1,25 @@
 import {
+  Body,
   Controller,
   Get,
+  HttpCode,
+  HttpStatus,
   Post,
-  Put,
-  Delete,
-  Param,
-  Body,
+  UseGuards,
 } from '@nestjs/common';
+import { Param, Put, Delete } from '@nestjs/common';
+import { JwtAuthGuard } from '../../modules/auth/jwt-auth.guard';
 import { AdminSecService } from './adminsec.service';
 import { CreateAdminSecDto } from './dto/CreateAdminSecDto';
 import { UpdateAdminSecDto } from './dto/UpdateAdminSecDto';
 
 @Controller('adminsec')
+@UseGuards(JwtAuthGuard)
 export class AdminSecController {
   constructor(private readonly adminSecService: AdminSecService) {}
 
   @Get()
-  findAll() {
+  list() {
     return this.adminSecService.findAll();
   }
 
@@ -26,6 +29,7 @@ export class AdminSecController {
   }
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() dto: CreateAdminSecDto) {
     return this.adminSecService.create(dto);
   }

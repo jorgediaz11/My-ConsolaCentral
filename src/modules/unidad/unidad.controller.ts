@@ -13,30 +13,30 @@ import { UpdateUnidadDto } from './dto/UpdateUnidadDto';
 
 @Controller('unidad')
 export class UnidadController {
-  constructor(private readonly service: UnidadService) {}
+  constructor(private readonly unidadService: UnidadService) {}
 
   @Get()
   findAll() {
-    return this.service.findAll();
+    return this.unidadService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.service.findOne(id);
+    return this.unidadService.findOne(id);
   }
 
   @Post()
   create(@Body() dto: CreateUnidadDto) {
-    return this.service.create(dto);
+    return this.unidadService.create(dto);
   }
 
   @Put(':id')
   update(@Param('id') id: number, @Body() dto: UpdateUnidadDto) {
-    return this.service.update(id, dto);
+    return this.unidadService.update(id, dto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.service.remove(id);
+    return this.unidadService.remove(id);
   }
 }

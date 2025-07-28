@@ -12,13 +12,9 @@ export class DocentesService {
     private docentesRepository: Repository<Docente>,
   ) {}
 
+  // Listar todos los docentes
   findAll(): Promise<Docente[]> {
-    return this.docentesRepository.find();
-  }
-
-  async create(createDocenteDto: CreateDocenteDto): Promise<Docente> {
-    const docente = this.docentesRepository.create(createDocenteDto);
-    return await this.docentesRepository.save(docente);
+    return this.docentesRepository.find({ where: { id_perfil: 3 } });
   }
 
   // Obtener un docente por ID
@@ -26,21 +22,46 @@ export class DocentesService {
     return this.docentesRepository.findOneBy({ id_docente: id });
   }
 
+  // Crear un docente
+  async create(dto: CreateDocenteDto): Promise<Docente> {
+    const docente = this.docentesRepository.create(dto);
+    return await this.docentesRepository.save(docente);
+  }
+
   // Actualizar un docente por ID
   async update(
-    id: number,
-    updateDocenteDto: UpdateDocenteDto,
+    id_docente: number,
+    dto: UpdateDocenteDto,
   ): Promise<Docente | null> {
-    await this.docentesRepository.update(id, updateDocenteDto);
-    return this.findOne(id);
+    await this.docentesRepository.update(id_docente, dto);
+    return this.findOne(id_docente);
   }
 
   // Eliminar un docente por ID
-  async remove(id: number): Promise<void> {
-    await this.docentesRepository.delete(id);
+  async remove(id_docente: number): Promise<void> {
+    await this.docentesRepository.delete(id_docente);
   }
 
-  // Buscar docentes por colegio
+  // Listar docentes con perfil docente (id_perfil = 3)
+  async findAllDocentes(): Promise<any[]> {
+    return this.docentesRepository.find({
+      where: { id_perfil: 3 },
+      select: [
+        'nombres',
+        'apellido',
+        'correo',
+        'telefono',
+        'direccion',
+        'fecha_nacimiento',
+        'estado',
+        'docente_titulo',
+        'foto_perfil',
+        'ultimo_acceso',
+      ],
+    });
+  }
+
+  // Listar docentes por colegio
   async findByColegio(id_colegio: number): Promise<Docente[]> {
     return this.docentesRepository.find({ where: { id_colegio } });
   }

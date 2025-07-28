@@ -9,28 +9,28 @@ import { TipoMaterialUpdateDto } from './dto/UpdateTipo-materialDto';
 export class TipoMaterialService {
   constructor(
     @InjectRepository(TipoMaterial)
-    private repo: Repository<TipoMaterial>,
+    private tipomaterialRepository: Repository<TipoMaterial>,
   ) {}
 
   findAll() {
-    return this.repo.find();
+    return this.tipomaterialRepository.find();
   }
 
   findOne(id: number) {
-    return this.repo.findOne({ where: { id } });
+    return this.tipomaterialRepository.findOneBy({ id_tipo_material: id });
   }
 
   create(dto: TipoMaterialCreateDto) {
-    const obj = this.repo.create(dto);
-    return this.repo.save(obj);
+    const tipo_material = this.tipomaterialRepository.create(dto);
+    return this.tipomaterialRepository.save(tipo_material);
   }
 
   async update(id: number, dto: TipoMaterialUpdateDto) {
-    await this.repo.update(id, dto);
+    await this.tipomaterialRepository.update(id, dto);
     return this.findOne(id);
   }
 
   remove(id: number) {
-    return this.repo.delete(id);
+    return this.tipomaterialRepository.delete(id);
   }
 }

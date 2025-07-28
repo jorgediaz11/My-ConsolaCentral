@@ -2,5 +2,6 @@ export class UpdateUnidadDto {
   id_curso?: number;
   nombre?: string;
   orden?: number;
-  estado?: boolean;
+  descripcion?: string; // Nuevo campo opcional
+  estado?: boolean; // Indica si la unidad está activa o inactiva
 }

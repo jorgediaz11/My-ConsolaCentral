@@ -3,8 +3,8 @@
 // importa la entidad User y ejecuta la creación
 // del SuperAdmin en el arranque.
 import { Module } from '@nestjs/common';
-import { Usuarios } from './usuarios.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Usuarios } from './usuarios.entity';
 import { UsuariosController } from './usuarios.controller';
 import { UsuariosService } from './usuarios.service';
 

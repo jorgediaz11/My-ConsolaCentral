@@ -6,6 +6,8 @@ import {
   Delete,
   Param,
   Body,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { ClasesDetService } from './clasesdet.service';
 import { CreateClasesDetDto } from './dto/CreateClasesDetDto';
@@ -20,12 +22,13 @@ export class ClasesDetController {
     return this.clasesDetService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.clasesDetService.findOne(id);
+  @Get(':id_clasedet')
+  findOne(@Param('id_clasedet') id_clasedet: number) {
+    return this.clasesDetService.findOne(id_clasedet);
   }
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() dto: CreateClasesDetDto) {
     return this.clasesDetService.create(dto);
   }
@@ -41,8 +44,8 @@ export class ClasesDetController {
   }
 
   // Endpoint para filtrar por id_clases
-  @Get('clases/:id_clases')
-  findByClases(@Param('id_clases') id_clases: number) {
-    return this.clasesDetService.findByClases(id_clases);
-  }
+  // @Get('clases/:id_clases')
+  // findByClases(@Param('id_clases') id_clases: number) {
+  //   return this.clasesDetService.findByClases(id_clases);
+  // }
 }

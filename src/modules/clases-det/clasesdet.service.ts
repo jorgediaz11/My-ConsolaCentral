@@ -17,7 +17,7 @@ export class ClasesDetService {
   }
 
   findOne(id: number): Promise<ClasesDet | null> {
-    return this.clasesDetRepository.findOneBy({ id_clases: id });
+    return this.clasesDetRepository.findOneBy({ id_clasedet: id });
   }
 
   async create(dto: CreateClasesDetDto): Promise<ClasesDet> {
@@ -35,7 +35,7 @@ export class ClasesDetService {
   }
 
   // Filtrar por id_clases
-  async findByClases(id_clases: number): Promise<ClasesDet[]> {
-    return this.clasesDetRepository.find({ where: { id_clases } });
-  }
+  // async findByClases(id_clases: number): Promise<ClasesDet[]> {
+  //   return this.clasesDetRepository.find({ where: { id_clases } });
+  // }
 }

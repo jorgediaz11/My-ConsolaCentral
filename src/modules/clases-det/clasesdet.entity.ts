@@ -2,8 +2,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('clases_det')
 export class ClasesDet {
-  @PrimaryGeneratedColumn({ name: 'id_clases' })
-  id_clases: number;
+  @PrimaryGeneratedColumn({ name: 'id_clasedet' })
+  id_clasedet: number;
+
+  @Column({ type: 'int' })
+  id_clasecol: number; // <-- Agregado
 
   @Column({ type: 'int' })
   id_curso: number;

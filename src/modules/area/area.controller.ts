@@ -41,8 +41,8 @@ export class AreaController {
   }
 
   // Endpoint para filtrar por tipo_curso e id_colegio
-  @Get('tipo/:tipo_curso')
-  findByTipo(@Param('tipo_curso') tipo_curso: string) {
-    return this.areaService.findByTipo(tipo_curso);
-  }
+  // @Get('tipo/:tipo_curso')
+  // findByTipo(@Param('tipo_curso') tipo_curso: string) {
+  //   return this.areaService.findByTipo(tipo_curso);
+  // }
 }

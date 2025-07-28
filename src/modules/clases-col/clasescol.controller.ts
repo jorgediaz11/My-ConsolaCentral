@@ -20,9 +20,9 @@ export class ClasesColController {
     return this.clasesColService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.clasesColService.findOne(id);
+  @Get(':id_clases')
+  findOne(@Param('id_clases') id_clases: number) {
+    return this.clasesColService.findOne(id_clases);
   }
 
   @Post()
@@ -30,19 +30,28 @@ export class ClasesColController {
     return this.clasesColService.create(dto);
   }
 
-  @Put(':id')
-  update(@Param('id') id: number, @Body() dto: UpdateClasesColDto) {
-    return this.clasesColService.update(id, dto);
+  @Put(':id_clases')
+  update(
+    @Param('id_clases') id_clases: number,
+    @Body() dto: UpdateClasesColDto,
+  ) {
+    return this.clasesColService.update(id_clases, dto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.clasesColService.remove(id);
+  @Delete(':id_clases')
+  remove(@Param('id_clases') id_clases: number) {
+    return this.clasesColService.remove(id_clases);
   }
 
   // Endpoint para filtrar por id_colegio
   @Get('colegio/:id_colegio')
-  findByColegio(@Param('id_colegio') id_colegio: number) {
-    return this.clasesColService.findByColegio(id_colegio);
+  findClasesByColegio(@Param('id_colegio') id_colegio: number) {
+    return this.clasesColService.findByColegio(Number(id_colegio));
+  }
+
+  // Endpoint para filtrar por id_docente
+  @Get('docente/:id_docente')
+  findClasesByDocente(@Param('id_docente') id_docente: number) {
+    return this.clasesColService.findByDocente(Number(id_docente));
   }
 }

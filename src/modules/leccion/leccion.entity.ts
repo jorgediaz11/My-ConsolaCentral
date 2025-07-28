@@ -14,8 +14,8 @@ export class Leccion {
   @Column()
   contenido: string;
 
-  @Column({ name: 'id_configuracion' })
-  idConfiguracion: number;
+  // @Column({ name: 'id_configuracion' })
+  // idConfiguracion: number;
 
   @Column({ type: 'boolean' })
   estado: boolean;

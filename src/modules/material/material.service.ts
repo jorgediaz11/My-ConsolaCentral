@@ -16,8 +16,8 @@ export class MaterialService {
     return this.repo.find();
   }
 
-  findOne(id: number) {
-    return this.repo.findOne({ where: { id } });
+  findOne(id_material: number) {
+    return this.repo.findOne({ where: { id: id_material } });
   }
 
   create(dto: CreateMaterialDto) {
@@ -25,12 +25,12 @@ export class MaterialService {
     return this.repo.save(obj);
   }
 
-  async update(id: number, dto: UpdateMaterialDto) {
-    await this.repo.update(id, dto);
-    return this.findOne(id);
+  async update(id_material: number, dto: UpdateMaterialDto) {
+    await this.repo.update(id_material, dto);
+    return this.findOne(id_material);
   }
 
-  remove(id: number) {
-    return this.repo.delete(id);
+  remove(id_material: number) {
+    return this.repo.delete(id_material);
   }
 }

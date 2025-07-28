@@ -16,8 +16,8 @@ export class LibrosService {
     return this.librosRepository.find();
   }
 
-  findOne(id: number): Promise<Libro | null> {
-    return this.librosRepository.findOneBy({ id_libro: id });
+  findOne(id_libro: number): Promise<Libro | null> {
+    return this.librosRepository.findOneBy({ id_libro: id_libro });
   }
 
   create(dto: CreateLibrosDto): Promise<Libro> {
@@ -25,12 +25,12 @@ export class LibrosService {
     return this.librosRepository.save(libro);
   }
 
-  async update(id: number, dto: UpdateLibrosDto): Promise<Libro | null> {
-    await this.librosRepository.update(id, dto);
-    return this.findOne(id);
+  async update(id_libro: number, dto: UpdateLibrosDto): Promise<Libro | null> {
+    await this.librosRepository.update(id_libro, dto);
+    return this.findOne(id_libro);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.librosRepository.delete(id);
+  async remove(id_libro: number): Promise<void> {
+    await this.librosRepository.delete(id_libro);
   }
 }

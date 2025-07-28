@@ -13,12 +13,7 @@ export class EstudiantesService {
   ) {}
 
   findAll(): Promise<Estudiante[]> {
-    return this.estudiantesRepository.find();
-  }
-
-  async create(createEstudianteDto: CreateEstudianteDto): Promise<Estudiante> {
-    const estudiante = this.estudiantesRepository.create(createEstudianteDto);
-    return await this.estudiantesRepository.save(estudiante);
+    return this.estudiantesRepository.find({ where: { id_perfil: 4 } });
   }
 
   // Obtener un estudiante por ID
@@ -26,13 +21,18 @@ export class EstudiantesService {
     return this.estudiantesRepository.findOneBy({ id_estudiante: id });
   }
 
+  async create(dto: CreateEstudianteDto): Promise<Estudiante> {
+    const estudiante = this.estudiantesRepository.create(dto);
+    return await this.estudiantesRepository.save(estudiante);
+  }
+
   // Actualizar un estudiante por ID
   async update(
-    id: number,
-    updateEstudianteDto: UpdateEstudianteDto,
+    id_estudiante: number,
+    dto: UpdateEstudianteDto,
   ): Promise<Estudiante | null> {
-    await this.estudiantesRepository.update(id, updateEstudianteDto);
-    return this.findOne(id);
+    await this.estudiantesRepository.update(id_estudiante, dto);
+    return this.findOne(id_estudiante);
   }
 
   // Eliminar un estudiante por ID
@@ -40,31 +40,27 @@ export class EstudiantesService {
     await this.estudiantesRepository.delete(id);
   }
 
-  // Buscar estudiantes por colegio
-  async findByColegio(id_colegio: number): Promise<Estudiante[]> {
+  // Listar estudiantes con perfil estudiante (id_perfil = 4)
+  async findAllEstudiantes(): Promise<any[]> {
     return this.estudiantesRepository.find({
-      where: { id_colegio },
-      relations: ['nivel', 'grado', 'seccion'], // Ajusta según tus relaciones
+      where: { id_perfil: 4 },
+      select: [
+        'nombres',
+        'apellido',
+        'correo',
+        'telefono',
+        'direccion',
+        'fecha_nacimiento',
+        'estado',
+        //'docente_titulo',
+        'foto_perfil',
+        'ultimo_acceso',
+      ],
     });
   }
 
-  // filepath: [estudiantes.service.ts](http://_vscodecontentref_/0)
-  // async findByColegioProfesor(
-  //   id_colegio: number,
-  //   id_profesor: number,
-  //   id_nivel: number,
-  //   id_grado: number,
-  //   id_seccion: number,
-  // ): Promise<Estudiante[]> {
-  //   return this.estudiantesRepository.find({
-  //     where: {
-  //       id_colegio,
-  //       id_profesor,
-  //       id_nivel,
-  //       id_grado,
-  //       id_seccion,
-  //     },
-  //     relations: ['nivel', 'grado', 'seccion'], // Ajusta según tus relaciones
-  //   });
-  // }
+  // Listar estudiantes por colegio
+  async findByColegio(id_colegio: number): Promise<Estudiante[]> {
+    return this.estudiantesRepository.find({ where: { id_colegio } });
+  }
 }

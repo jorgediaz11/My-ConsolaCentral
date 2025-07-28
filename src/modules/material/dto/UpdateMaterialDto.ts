@@ -8,5 +8,5 @@ export class UpdateMaterialDto {
   duracion_segundos?: number;
   fecha_creacion?: Date;
   id_configuracion?: number;
-  estado?: boolean;
+  estado?: boolean; // Indica si el material está activo o inactivo
 }

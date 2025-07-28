@@ -9,28 +9,28 @@ import { UpdateUnidadDto } from './dto/UpdateUnidadDto';
 export class UnidadService {
   constructor(
     @InjectRepository(Unidad)
-    private repo: Repository<Unidad>,
+    private unidadRepository: Repository<Unidad>,
   ) {}
 
   findAll() {
-    return this.repo.find();
+    return this.unidadRepository.find();
   }
 
   findOne(id: number) {
-    return this.repo.findOne({ where: { id } });
+    return this.unidadRepository.findOneBy({ id_unidad: id });
   }
 
   create(dto: CreateUnidadDto) {
-    const obj = this.repo.create(dto);
-    return this.repo.save(obj);
+    const unidad = this.unidadRepository.create(dto);
+    return this.unidadRepository.save(unidad);
   }
 
   async update(id: number, dto: UpdateUnidadDto) {
-    await this.repo.update(id, dto);
+    await this.unidadRepository.update(id, dto);
     return this.findOne(id);
   }
 
   remove(id: number) {
-    return this.repo.delete(id);
+    return this.unidadRepository.delete(id);
   }
 }

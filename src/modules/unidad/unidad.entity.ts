@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity('unidad')
 export class Unidad {
   @PrimaryGeneratedColumn({ name: 'id_unidad' })
-  id: number;
+  id_unidad: number;
 
   @Column({ name: 'id_curso' })
   idCurso: number;
@@ -13,6 +13,9 @@ export class Unidad {
 
   @Column()
   orden: number;
+
+  @Column()
+  descripcion: string;
 
   @Column({ type: 'boolean' })
   estado: boolean;

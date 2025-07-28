@@ -30,7 +30,7 @@ export class UbigeoController {
     return this.ubigeoService.findDistritos(cod_prov);
   }
 
-  @Post()
+  @Post() // Endpoint to create a new ubigeo
   create(@Body() dto: CreateUbigeoDto) {
     return this.ubigeoService.create(dto);
   }

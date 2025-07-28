@@ -14,7 +14,7 @@ export class Grado {
 
   @ManyToOne(() => Nivel)
   @JoinColumn({ name: 'id_nivel' })
-  nivel: Nivel;
+  nivel: Nivel; // Relación con la entidad Nivel
 
   @Column({ type: 'varchar', length: 100 })
   nombre: string;

@@ -16,12 +16,12 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { UsuariosService } from './usuarios.service';
+import { Param, Put, Delete } from '@nestjs/common';
 import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreateUsuariosDto } from './dto/CreateUsuariosDto';
 import { UpdateUsuariosDto } from './dto/UpdateUsuariosDto';
-import { Param, Put, Delete } from '@nestjs/common';
+import { UsuariosService } from './usuarios.service';
 
 @Controller('usuarios')
 @UseGuards(JwtAuthGuard)

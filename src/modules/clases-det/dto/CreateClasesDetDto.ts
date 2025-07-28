@@ -1,4 +1,5 @@
 export class CreateClasesDetDto {
+  id_clasecol: number; // <-- Agregado
   id_curso: number;
   id_estudiante: number;
   observaciones?: string;

@@ -1,12 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('adminsec')
+@Entity('usuario')
 export class AdminSec {
-  @PrimaryGeneratedColumn({ name: 'id_adminsec' })
+  @PrimaryGeneratedColumn({ name: 'id_usuario' })
   id_adminsec: number;
 
   @Column({ type: 'varchar', length: 100 })
-  nombre: string;
+  nombres: string;
 
   @Column({ type: 'varchar', length: 100 })
   apellido: string;
@@ -14,10 +14,34 @@ export class AdminSec {
   @Column({ type: 'varchar', length: 100 })
   correo: string;
 
-  @Column({ type: 'varchar', length: 10 })
-  estado: string;
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  telefono: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  direccion: string;
+
+  @Column({ type: 'date', nullable: true })
+  fecha_nacimiento: Date;
+
+  @Column({ type: 'boolean', default: true })
+  estado: boolean;
+
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  username: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  password: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  admin_colegio_rol: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  foto_perfil: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  ultimo_acceso: Date;
+
+  @Column({ type: 'int', default: 2 })
   id_perfil: number; // Perfil directivo, ejemplo: 2
 
   @Column({ type: 'int' })

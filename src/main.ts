@@ -1,4 +1,4 @@
-// 01 Inicio de la Aplicación
+// 01 Inicio de la Aplicación NestJS
 // Arranca la aplicación NestJS y carga el módulo raíz (AppModule).
 // E01: Inicio de la aplicación NestJS
 import { NestFactory } from '@nestjs/core';
