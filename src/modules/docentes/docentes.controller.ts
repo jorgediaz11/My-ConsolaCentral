@@ -18,11 +18,13 @@ import { UpdateDocenteDto } from './dto/UpdateDocenteDto';
 export class DocentesController {
   constructor(private readonly docentesService: DocentesService) {}
 
+  // 01: Listar todos los docentes
   @Get()
   list() {
     return this.docentesService.findAll();
   }
 
+  // 02: Listar los datos de un solo docente
   @Get(':id')
   async findOne(@Param('id') id: number) {
     return this.docentesService.findOne(Number(id));

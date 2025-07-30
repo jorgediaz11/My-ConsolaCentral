@@ -37,6 +37,7 @@ import { AdminSecModule } from './modules/adminsec/adminsec.module';
 import { UbigeoModule } from './modules/ubigeo/ubigeo.module';
 import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module';
 import { LibrosModule } from './modules/libro/libros.module';
+import { SeccionModule } from './modules/seccion/seccion.module';
 
 @Module({
   imports: [
@@ -89,6 +90,7 @@ import { LibrosModule } from './modules/libro/libros.module';
     UbigeoModule,
     ActivarLibroModule,
     LibrosModule,
+    SeccionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

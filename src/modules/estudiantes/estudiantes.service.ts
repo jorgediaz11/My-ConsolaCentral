@@ -12,6 +12,7 @@ export class EstudiantesService {
     private estudiantesRepository: Repository<Estudiante>,
   ) {}
 
+  // Listar todos los Estudiantes
   findAll(): Promise<Estudiante[]> {
     return this.estudiantesRepository.find({ where: { id_perfil: 4 } });
   }
