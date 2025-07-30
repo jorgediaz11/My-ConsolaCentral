@@ -45,4 +45,7 @@ export class Usuarios {
 
   @Column({ type: 'boolean' })
   estado: boolean;
+
+  @Column({ type: 'int', nullable: true })
+  id_grado?: number;
 }

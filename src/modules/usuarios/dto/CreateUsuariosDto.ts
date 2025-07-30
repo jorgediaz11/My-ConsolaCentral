@@ -7,4 +7,5 @@ export class CreateUsuariosDto {
   id_perfil: number;
   id_colegio: number; // Nuevo campo
   estado: boolean;
+  id_grado?: number; // Solo para estudiantes, opcional
 }
