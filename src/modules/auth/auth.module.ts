@@ -7,10 +7,12 @@ import { AuthController } from './auth.controller';
 import { Usuarios } from '../usuarios/usuarios.entity';
 import { JwtStrategy } from './jwt.strategy';
 import { jwtConstants } from './constans';
+import { RefreshToken } from './refresh-token.entity';
+import { AlumnoGrado } from '../alumnogrado/alumnogrado.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Usuarios]), // ← CAMBIO PRINCIPAL: Acceso directo al repositorio
+    TypeOrmModule.forFeature([Usuarios, RefreshToken, AlumnoGrado]), // ← CAMBIO PRINCIPAL: Acceso directo al repositorio
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,
