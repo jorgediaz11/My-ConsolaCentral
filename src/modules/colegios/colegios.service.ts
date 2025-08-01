@@ -72,8 +72,4 @@ export class ColegiosService {
       },
     });
   }
-  catch(error) {
-    console.error('Error en findClientes:', error);
-    throw error;
-  }
 }

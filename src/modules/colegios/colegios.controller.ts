@@ -8,6 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ColegiosService } from './colegios.service';
+import { Public } from '../../common/decorators/public.decorator';
 import { JwtAuthGuard } from '../../modules/auth/jwt-auth.guard';
 import { CreateColegioDto } from './dto/CreateColegioDto';
 import { Param, Put, Delete } from '@nestjs/common';
@@ -32,6 +33,7 @@ export class ColegiosController {
   }
 
   @Get('clientes')
+  @Public()
   findClientes() {
     return this.colegiosService.findClientes();
   }
