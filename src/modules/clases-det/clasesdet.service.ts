@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, DataSource } from 'typeorm';
 import { ClasesDet } from './clasesdet.entity';
 import { CreateClasesDetDto } from './dto/CreateClasesDetDto';
 import { UpdateClasesDetDto } from './dto/UpdateClasesDetDto';
@@ -10,6 +10,7 @@ export class ClasesDetService {
   constructor(
     @InjectRepository(ClasesDet)
     private clasesDetRepository: Repository<ClasesDet>,
+    private dataSource: DataSource,
   ) {}
 
   findAll(): Promise<ClasesDet[]> {
@@ -18,6 +19,17 @@ export class ClasesDetService {
 
   findOne(id: number): Promise<ClasesDet | null> {
     return this.clasesDetRepository.findOneBy({ id_clasedet: id });
+  }
+
+  async findEstudiantesByClase(id_clasecol: number): Promise<any[]> {
+    return this.dataSource.query(
+      `SELECT cu.id_curso, cu.nombre, u.id_usuario AS id_estudiante, u.nombres || ' ' || u.apellido AS nombre_estudiante
+       FROM clases_det cd
+       INNER JOIN curso cu ON cd.id_curso = cu.id_curso
+       INNER JOIN usuario u ON cd.id_estudiante = u.id_usuario
+       WHERE cd.estado = TRUE AND cd.id_clasecol = $1`,
+      [id_clasecol],
+    );
   }
 
   async create(dto: CreateClasesDetDto): Promise<ClasesDet> {

@@ -51,6 +51,12 @@ export class ColegiosController {
     return this.colegiosService.update(Number(id), updateColegioDto);
   }
 
+  @Put('activar-cliente/:id_colegio')
+  async activarColegioCliente(@Param('id_colegio') id_colegio: number) {
+    await this.colegiosService.activarColegioCliente(Number(id_colegio));
+    return { message: 'Colegio activado como cliente correctamente' };
+  }
+
   @Delete(':id_colegio')
   async remove(@Param('id_colegio') id: number) {
     await this.colegiosService.remove(Number(id));

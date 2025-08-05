@@ -72,4 +72,11 @@ export class ColegiosService {
       },
     });
   }
+
+  async activarColegioCliente(id_colegio: number): Promise<void> {
+    await this.colegiosRepository.update(
+      { id_colegio, estado: true },
+      { colegio_cliente: true },
+    );
+  }
 }

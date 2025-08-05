@@ -45,9 +45,13 @@ export class ClasesColController {
 
   // Endpoint para filtrar por id_colegio
   @Get('colegio/:id_colegio')
-  findClasesByColegio(@Param('id_colegio') id_colegio: number) {
-    return this.clasesColService.findByColegio(Number(id_colegio));
+  async findClasesByColegio(@Param('id_colegio') id_colegio: number) {
+    return this.clasesColService.findClasesByColegio(Number(id_colegio));
   }
+  // @Get('colegio/:id_colegio')
+  // async findClasesByColegio(@Param('id_colegio') id_colegio: number) {
+  //   return this.clasesColService.findByColegio(Number(id_colegio));
+  // }
 
   // Endpoint para filtrar por id_docente
   @Get('docente/:id_docente')

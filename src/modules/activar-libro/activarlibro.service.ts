@@ -30,4 +30,17 @@ export class ActivarLibroService {
       },
     });
   }
+
+  async updateEstadoByParams(
+    id_colegio: number,
+    id_estudiante: number,
+    id_curso: number,
+    codigo_libro: string,
+    estado: boolean,
+  ): Promise<void> {
+    await this.activarLibroRepository.update(
+      { id_colegio, id_estudiante, id_curso, codigo_libro },
+      { estado },
+    );
+  }
 }

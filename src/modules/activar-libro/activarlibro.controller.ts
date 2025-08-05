@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Put, Body } from '@nestjs/common';
 import { ActivarLibroService } from './activarlibro.service';
 
 @Controller('activar-libro')
@@ -23,5 +23,26 @@ export class ActivarLibroController {
       pendientes: librosPendientes,
       total_pendientes: librosPendientes.length,
     };
+  }
+
+  @Put('estado')
+  async updateEstadoByParams(
+    @Body()
+    body: {
+      id_colegio: number;
+      id_estudiante: number;
+      id_curso: number;
+      codigo_libro: string;
+      estado: boolean;
+    },
+  ) {
+    await this.activarLibroService.updateEstadoByParams(
+      body.id_colegio,
+      body.id_estudiante,
+      body.id_curso,
+      body.codigo_libro,
+      body.estado,
+    );
+    return { message: 'Estado actualizado correctamente' };
   }
 }

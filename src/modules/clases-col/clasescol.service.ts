@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, DataSource } from 'typeorm';
 import { ClasesCol } from './clasescol.entity';
 import { CreateClasesColDto } from './dto/CreateClasesColDto';
 import { UpdateClasesColDto } from './dto/UpdateClasesColDto';
@@ -11,8 +11,7 @@ export class ClasesColService {
   constructor(
     @InjectRepository(ClasesCol)
     private clasesColRepository: Repository<ClasesCol>,
-    // @InjectRepository(ClasesDet)
-    // private claseDetRepository: Repository<ClasesDet>,
+    private dataSource: DataSource,
   ) {}
 
   findAll(): Promise<ClasesCol[]> {
@@ -21,6 +20,18 @@ export class ClasesColService {
 
   findOne(id_clases: number): Promise<ClasesCol | null> {
     return this.clasesColRepository.findOneBy({ id_clases: id_clases });
+  }
+
+  async findClasesByColegio(id_colegio: number): Promise<any[]> {
+    return this.dataSource.query(
+      `SELECT n.nombre AS nivel, g.nombre AS grado, s.nombre AS seccion, c.nombre AS nombre_clase
+       FROM clases_col c
+       INNER JOIN nivel n ON c.id_nivel = n.id_nivel
+       INNER JOIN grado g ON c.id_grado = g.id_grado
+       INNER JOIN seccion s ON c.id_seccion = s.id_seccion
+       WHERE c.estado = TRUE AND c.id_colegio = $1`,
+      [id_colegio],
+    );
   }
 
   async create(dto: CreateClasesColDto): Promise<ClasesCol> {

@@ -27,6 +27,11 @@ export class ClasesDetController {
     return this.clasesDetService.findOne(id_clasedet);
   }
 
+  @Get('clase/:id_clasecol/estudiantes')
+  async findEstudiantesByClase(@Param('id_clasecol') id_clasecol: number) {
+    return this.clasesDetService.findEstudiantesByClase(Number(id_clasecol));
+  }
+
   @Post()
   @HttpCode(HttpStatus.CREATED)
   create(@Body() dto: CreateClasesDetDto) {
