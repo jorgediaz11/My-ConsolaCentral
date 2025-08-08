@@ -3,10 +3,12 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
   JoinColumn,
 } from 'typeorm';
 import { Area } from '../area/area.entity';
 import { Grado } from '../grado/grado.entity';
+import { Unidad } from '../unidad/unidad.entity';
 
 @Entity('curso')
 export class Cursos {
@@ -35,4 +37,7 @@ export class Cursos {
 
   @Column({ type: 'int' })
   id_colegio: number; // ID del colegio afiliado
+
+  @OneToMany(() => Unidad, unidad => unidad.curso)
+  unidades: Unidad[];
 }

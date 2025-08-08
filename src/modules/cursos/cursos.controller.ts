@@ -25,6 +25,11 @@ export class CursosController {
     return this.cursosService.findOne(id);
   }
 
+  @Get(':id/detalle')
+  findDetalle(@Param('id') id: number) {
+    return this.cursosService.findDetalleById(id);
+  }
+
   @Post()
   create(@Body() dto: CreateCursosDto) {
     return this.cursosService.create(dto);

@@ -7,6 +7,17 @@ import { UpdateCursosDto } from './dto/UpdateCursosDto';
 
 @Injectable()
 export class CursosService {
+  async findDetalleById(id: number): Promise<Cursos | null> {
+    return this.cursosRepository.findOne({
+      where: { id_curso: id },
+      relations: [
+        'area',
+        'grado',
+        'unidades',
+        'unidades.lecciones',
+      ],
+    });
+  }
   constructor(
     @InjectRepository(Cursos)
     private cursosRepository: Repository<Cursos>,
