@@ -38,6 +38,15 @@ import { UbigeoModule } from './modules/ubigeo/ubigeo.module';
 import { ActivarLibroModule } from './modules/activar-libro/activarlibro.module';
 import { LibrosModule } from './modules/libro/libros.module';
 import { SeccionModule } from './modules/seccion/seccion.module';
+import { AulasModule } from './modules/aulas/aulas.module';
+import { CuestionariosModule } from './modules/cuestionarios/cuestionarios.module';
+import { PreguntasModule } from './modules/preguntas/preguntas.module';
+import { OpcionesModule } from './modules/opciones/opciones.module';
+import { RespuestaEstudianteModule } from './modules/respuestas/respuestas.module';
+import { EvaluacionCuestionarioModule } from './modules/evaluacionescuestionario/evaluacionescuestionario.module';
+import { ActividadesModule } from './modules/actividades/actividades.module';
+import { EntregasModule } from './modules/entregas/entregas.module';
+import { EvaluacionActividadModule } from './modules/evaluacionesactividad/evaluacionesactividad.module';
 
 @Module({
   imports: [
@@ -91,6 +100,17 @@ import { SeccionModule } from './modules/seccion/seccion.module';
     ActivarLibroModule,
     LibrosModule,
     SeccionModule,
+    AulasModule,
+    CuestionariosModule,
+    PreguntasModule,
+    OpcionesModule,
+    RespuestaEstudianteModule,
+    EvaluacionCuestionarioModule,
+    EvaluacionActividadModule,
+    ActivarLibroModule,
+    EntregasModule,
+    ActivarLibroModule,
+    ActividadesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -17,15 +17,15 @@ export class ColegiosService {
     return this.colegiosRepository.find();
   }
 
+  // Obtener un colegio por ID
+  async findOne(id: number): Promise<Colegio | null> {
+    return this.colegiosRepository.findOneBy({ id_colegio: id });
+  }
+
   // Crear un nuevo colegio en la base de datos
   async create(createColegioDto: CreateColegioDto): Promise<Colegio> {
     const colegio = this.colegiosRepository.create(createColegioDto);
     return await this.colegiosRepository.save(colegio);
-  }
-
-  // Obtener un colegio por ID
-  async findOne(id: number): Promise<Colegio | null> {
-    return this.colegiosRepository.findOneBy({ id_colegio: id });
   }
 
   // Actualizar un colegio por ID
