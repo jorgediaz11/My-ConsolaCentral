@@ -25,6 +25,11 @@ export class UnidadController {
     return this.unidadService.findOne(id);
   }
 
+  @Get('curso/:id_curso')
+  findByCurso(@Param('id_curso') id_curso: number) {
+    return this.unidadService.findByCurso(Number(id_curso));
+  }
+
   @Post()
   create(@Body() dto: CreateUnidadDto) {
     return this.unidadService.create(dto);

@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EvaluacionCuestionario } from './evaluacionescuestionario.entity';
 import { EvaluacionCuestionarioService } from './evaluacionescuestionario.service';
-import { EvaluacionCuestionarioController } from './evaluacionesCuestionario.controller';
+import { EvaluacionCuestionarioController } from './evaluacionescuestionario.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([EvaluacionCuestionario])],

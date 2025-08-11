@@ -47,6 +47,7 @@ import { EvaluacionCuestionarioModule } from './modules/evaluacionescuestionario
 import { ActividadesModule } from './modules/actividades/actividades.module';
 import { EntregasModule } from './modules/entregas/entregas.module';
 import { EvaluacionActividadModule } from './modules/evaluacionesactividad/evaluacionesactividad.module';
+import { CursoDetalleModule } from './modules/curso-detalle/cursosdetalles.module';
 
 @Module({
   imports: [
@@ -111,6 +112,7 @@ import { EvaluacionActividadModule } from './modules/evaluacionesactividad/evalu
     EntregasModule,
     ActivarLibroModule,
     ActividadesModule,
+    CursoDetalleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

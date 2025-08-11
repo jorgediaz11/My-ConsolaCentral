@@ -12,25 +12,32 @@ export class UnidadService {
     private unidadRepository: Repository<Unidad>,
   ) {}
 
-  findAll() {
+  findAll(): Promise<Unidad[]> {
     return this.unidadRepository.find();
   }
 
-  findOne(id: number) {
+  findOne(id: number): Promise<Unidad | null> {
     return this.unidadRepository.findOneBy({ id_unidad: id });
   }
 
-  create(dto: CreateUnidadDto) {
+  async findByCurso(id_curso: number): Promise<Unidad[]> {
+    return this.unidadRepository.find({
+      where: { curso: { id_curso } },
+      relations: ['curso'],
+    });
+  }
+
+  create(dto: CreateUnidadDto): Promise<Unidad> {
     const unidad = this.unidadRepository.create(dto);
     return this.unidadRepository.save(unidad);
   }
 
-  async update(id: number, dto: UpdateUnidadDto) {
+  async update(id: number, dto: UpdateUnidadDto): Promise<Unidad | null> {
     await this.unidadRepository.update(id, dto);
     return this.findOne(id);
   }
 
-  remove(id: number) {
+  remove(id: number): Promise<any> {
     return this.unidadRepository.delete(id);
   }
 }

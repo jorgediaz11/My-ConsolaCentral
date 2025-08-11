@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { EvaluacionCuestionario } from './evaluacionescuestionario.entity';
-import { CreateEvaluacionDto } from './dto/CreateEvaluacionDto';
-import { UpdateEvaluacionDto } from './dto/UpdateEvaluacionDto';
+import { CreateEvaluacionDto } from './dto/CreateEvaluacionCuestionarioDto';
+import { UpdateEvaluacionDto } from './dto/UpdateEvaluacionCuestionarioDto';
 
 @Injectable()
 export class EvaluacionCuestionarioService {

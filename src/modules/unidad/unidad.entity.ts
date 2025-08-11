@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 import { Cursos } from '../cursos/cursos.entity';
 import { Leccion } from '../leccion/leccion.entity';
 
@@ -10,7 +17,7 @@ export class Unidad {
   @Column({ name: 'id_curso' })
   idCurso: number;
 
-  @ManyToOne(() => Cursos, curso => curso.unidades)
+  @ManyToOne(() => Cursos, (curso) => curso.unidades)
   @JoinColumn({ name: 'id_curso' })
   curso: Cursos;
 
@@ -26,6 +33,6 @@ export class Unidad {
   @Column({ type: 'boolean' })
   estado: boolean;
 
-  @OneToMany(() => Leccion, leccion => leccion.unidad)
+  @OneToMany(() => Leccion, (leccion) => leccion.unidad)
   lecciones: Leccion[];
 }
