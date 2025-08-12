@@ -6,7 +6,7 @@ export class CreateActividadDto {
   id_unidad: number;
   titulo: string;
   descripcion: string;
-  tipo_actividad: string;
+  id_tipo_actividad: number;
   creador_id: number;
   fecha_creacion: Date;
   fecha_limite: Date;

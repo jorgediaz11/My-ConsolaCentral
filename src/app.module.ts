@@ -13,6 +13,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 // Importación de módulos funcionales (orden alfabético recomendado)
+import { TipoPreguntaModule } from './modules/tipo-pregunta/tipo-pregunta.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AreaModule } from './modules/area/area.module';
 import { ColegiosModule } from './modules/colegios/colegios.module';
@@ -23,6 +24,7 @@ import { EstudiantesModule } from './modules/estudiantes/estudiantes.module';
 import { GradoModule } from './modules/grado/grado.module';
 import { LeccionModule } from './modules/leccion/leccion.module';
 import { TipoMaterialModule } from './modules/tipo-material/tipo-material.module';
+import { TipoActividadModule } from './modules/tipo-actividad/tipo-actividad.module';
 import { MaterialModule } from './modules/material/material.module';
 import { NivelModule } from './modules/nivel/nivel.module';
 // Correct the import path if the folder is named 'roles' instead of 'rol'
@@ -89,7 +91,9 @@ import { CursoDetalleModule } from './modules/curso-detalle/cursosdetalles.modul
     LeccionModule,
     MaterialModule,
     NivelModule,
-    TipoMaterialModule,
+  TipoMaterialModule,
+  TipoActividadModule,
+  TipoPreguntaModule,
     UnidadModule,
     UsuariosModule,
     PerfilModule,

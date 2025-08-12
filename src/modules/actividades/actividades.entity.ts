@@ -26,8 +26,8 @@ export class ActividadEducativa {
   @Column({ type: 'text' })
   descripcion: string;
 
-  @Column({ type: 'varchar', length: 50 })
-  tipo_actividad: string;
+  @Column({ type: 'int' })
+  id_tipo_actividad: number;
 
   @Column({ type: 'int' })
   creador_id: number;

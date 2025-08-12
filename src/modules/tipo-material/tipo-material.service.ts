@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TipoMaterial } from './tipo-material.entity';
-import { TipoMaterialCreateDto } from './dto/CreateTipo-materialDto';
-import { TipoMaterialUpdateDto } from './dto/UpdateTipo-materialDto';
+import { CreateTipoMaterialDto } from './dto/CreateTipo-materialDto';
+import { UpdateTipoMaterialDto } from './dto/UpdateTipo-materialDto';
 
 @Injectable()
 export class TipoMaterialService {
@@ -20,12 +20,12 @@ export class TipoMaterialService {
     return this.tipomaterialRepository.findOneBy({ id_tipo_material: id });
   }
 
-  create(dto: TipoMaterialCreateDto) {
+  create(dto: CreateTipoMaterialDto) {
     const tipo_material = this.tipomaterialRepository.create(dto);
     return this.tipomaterialRepository.save(tipo_material);
   }
 
-  async update(id: number, dto: TipoMaterialUpdateDto) {
+  async update(id: number, dto: UpdateTipoMaterialDto) {
     await this.tipomaterialRepository.update(id, dto);
     return this.findOne(id);
   }

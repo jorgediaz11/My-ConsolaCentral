@@ -8,8 +8,8 @@ import {
   Body,
 } from '@nestjs/common';
 import { TipoMaterialService } from './tipo-material.service';
-import { TipoMaterialCreateDto } from './dto/CreateTipo-materialDto';
-import { TipoMaterialUpdateDto } from './dto/UpdateTipo-materialDto';
+import { CreateTipoMaterialDto } from './dto/CreateTipo-materialDto';
+import { UpdateTipoMaterialDto } from './dto/UpdateTipo-materialDto';
 
 @Controller('tipo_material')
 export class TipoMaterialController {
@@ -26,12 +26,12 @@ export class TipoMaterialController {
   }
 
   @Post()
-  create(@Body() dto: TipoMaterialCreateDto) {
+  create(@Body() dto: CreateTipoMaterialDto) {
     return this.tipoMaterialService.create(dto);
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() dto: TipoMaterialUpdateDto) {
+  update(@Param('id') id: number, @Body() dto: UpdateTipoMaterialDto) {
     return this.tipoMaterialService.update(id, dto);
   }
 
