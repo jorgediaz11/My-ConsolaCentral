@@ -13,6 +13,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 // Importación de módulos funcionales (orden alfabético recomendado)
+import { PeriodoAcademicoModule } from './modules/periodoacademico/periodoacademico.module';
 import { TipoPreguntaModule } from './modules/tipo-pregunta/tipo-pregunta.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AreaModule } from './modules/area/area.module';
@@ -94,6 +95,7 @@ import { CursoDetalleModule } from './modules/curso-detalle/cursosdetalles.modul
   TipoMaterialModule,
   TipoActividadModule,
   TipoPreguntaModule,
+  PeriodoAcademicoModule,
     UnidadModule,
     UsuariosModule,
     PerfilModule,
