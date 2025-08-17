@@ -24,7 +24,7 @@ export class PeriodoAcademico {
   fecha_fin: Date;
 
   @Column({ default: true })
-  esta_activo: boolean;
+  estado: boolean;
 
   @CreateDateColumn({ type: 'timestamp' })
   fecha_creacion: Date;

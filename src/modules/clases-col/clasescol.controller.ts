@@ -25,6 +25,15 @@ export class ClasesColController {
     return this.clasesColService.findOne(id_clases);
   }
 
+  @Get('detalle/:id_clases')
+  async findDetalleById(
+    @Param('id_clases') id_clases: number,
+  ): Promise<CreateClasesColDto> {
+    return this.clasesColService.findDetalleById(
+      Number(id_clases),
+    ) as Promise<CreateClasesColDto>;
+  }
+
   @Post()
   create(@Body() dto: CreateClasesColDto) {
     return this.clasesColService.create(dto);

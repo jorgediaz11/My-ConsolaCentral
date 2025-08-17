@@ -1,4 +1,4 @@
-export class UpdateTipoPreguntaDto {
+export class UpdateTipoAccesoDto {
   nombre?: string;
   descripcion?: string;
   estado?: boolean;

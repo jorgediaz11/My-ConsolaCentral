@@ -11,7 +11,7 @@ import { TipoPreguntaService } from './tipo-pregunta.service';
 import { CreateTipoPreguntaDto } from './dto/CreateTipo-PreguntaDto';
 import { UpdateTipoPreguntaDto } from './dto/UpdateTipo-PreguntaDto';
 
-@Controller('tipo_pregunta')
+@Controller('tipo-pregunta')
 export class TipoPreguntaController {
   constructor(private readonly tipoPreguntaService: TipoPreguntaService) {}
 

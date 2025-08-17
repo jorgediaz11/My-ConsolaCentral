@@ -52,6 +52,11 @@ import { EntregasModule } from './modules/entregas/entregas.module';
 import { EvaluacionActividadModule } from './modules/evaluacionesactividad/evaluacionesactividad.module';
 import { CursoDetalleModule } from './modules/curso-detalle/cursosdetalles.module';
 import { CuestionarioDetalleModule } from './modules/cuestionario-detalle/cuestionariodetalle.module';
+import { CalificacionModule } from './modules/calificaciones/calificaciones.module';
+import { MaterialLeccionModule } from './modules/material-lecciones/material-lecciones.module';
+import { ProfesorCursoModule } from './modules/profesor_curso/profesor-curso.module';
+import { TipoAccesoModule } from './modules/tipo-acceso/tipo-acceso.module';
+import { AlumnoGradoModule } from './modules/alumnogrado/alumnogrado.module';
 
 @Module({
   imports: [
@@ -93,10 +98,10 @@ import { CuestionarioDetalleModule } from './modules/cuestionario-detalle/cuesti
     LeccionModule,
     MaterialModule,
     NivelModule,
-  TipoMaterialModule,
-  TipoActividadModule,
-  TipoPreguntaModule,
-  PeriodoAcademicoModule,
+    TipoMaterialModule,
+    TipoActividadModule,
+    TipoPreguntaModule,
+    PeriodoAcademicoModule,
     UnidadModule,
     UsuariosModule,
     PerfilModule,
@@ -120,7 +125,12 @@ import { CuestionarioDetalleModule } from './modules/cuestionario-detalle/cuesti
     ActivarLibroModule,
     ActividadesModule,
     CursoDetalleModule,
-  CuestionarioDetalleModule,
+    CuestionarioDetalleModule,
+    CalificacionModule,
+    MaterialLeccionModule,
+    ProfesorCursoModule,
+    TipoAccesoModule,
+    AlumnoGradoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

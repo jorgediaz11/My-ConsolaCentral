@@ -11,7 +11,7 @@ import { TipoActividadService } from './tipo-actividad.service';
 import { CreateTipoActividadDto } from './dto/CreateTipo-ActividadDto';
 import { UpdateTipoActividadDto } from './dto/UpdateTipo-ActividadDto';
 
-@Controller('tipo_actividad')
+@Controller('tipo-actividad')
 export class TipoActividadController {
   constructor(private readonly tipoActividadService: TipoActividadService) {}
 
