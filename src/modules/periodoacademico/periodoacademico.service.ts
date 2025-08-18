@@ -9,20 +9,20 @@ import { UpdatePeriodoAcademicoDto } from './dto/UpdatePeriodoAcademicoDto';
 export class PeriodoAcademicoService {
   constructor(
     @InjectRepository(PeriodoAcademico)
-    private readonly repo: Repository<PeriodoAcademico>,
+    private repo: Repository<PeriodoAcademico>,
   ) {}
 
-  async findAll(): Promise<PeriodoAcademico[]> {
+  findAll(): Promise<PeriodoAcademico[]> {
     return this.repo.find();
   }
 
-  async findOne(id: number): Promise<PeriodoAcademico | null> {
-    return this.repo.findOne({ where: { id_periodo_academico: id } });
+  findOne(id: number): Promise<PeriodoAcademico | null> {
+    return this.repo.findOneBy({ id_periodo_academico: id });
   }
 
   async create(dto: CreatePeriodoAcademicoDto): Promise<PeriodoAcademico> {
     const entity = this.repo.create(dto);
-    return this.repo.save(entity);
+    return await this.repo.save(entity);
   }
 
   async update(

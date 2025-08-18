@@ -3,5 +3,6 @@ export class CreatePeriodoAcademicoDto {
   anio: number;
   fecha_inicio: Date;
   fecha_fin: Date;
-  estado?: boolean;
+  estado: boolean;
+  fecha_creacion: Date;
 }

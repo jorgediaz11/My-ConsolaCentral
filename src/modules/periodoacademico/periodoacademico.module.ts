@@ -8,6 +8,5 @@ import { PeriodoAcademicoController } from './periodoacademico.controller';
   imports: [TypeOrmModule.forFeature([PeriodoAcademico])],
   providers: [PeriodoAcademicoService],
   controllers: [PeriodoAcademicoController],
-  exports: [PeriodoAcademicoService],
 })
 export class PeriodoAcademicoModule {}

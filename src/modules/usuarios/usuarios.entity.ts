@@ -40,8 +40,11 @@ export class Usuarios {
   @Column() // Define una columna para el correo electrónico del usuario.//
   correo: string;
 
-  // @Column({ name: 'contraseña_hash' })
-  // contrasenaHash: string;
+  @Column({ nullable: true }) // DNI puede ser opcional
+  dni: string;
+
+  @Column({ type: 'date', nullable: true }) // Fecha de nacimiento opcional
+  fecha_nacimiento: string;
 
   @Column({ type: 'boolean' })
   estado: boolean;

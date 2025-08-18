@@ -4,4 +4,5 @@ export class UpdatePeriodoAcademicoDto {
   fecha_inicio?: Date;
   fecha_fin?: Date;
   estado?: boolean;
+  fecha_creacion?: Date;
 }

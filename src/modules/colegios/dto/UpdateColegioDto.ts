@@ -4,6 +4,19 @@ export class UpdateColegioDto {
   telefono?: string;
   correo?: string;
   estado?: boolean;
-  id_ubigeo?: string; // Nuevo campo para el código de distrito
+  codigomodular?: string;
+  website?: string;
+  logo?: string;
+  director?: string;
+  niveleseducativos?: string;
+  turnos?: string;
+  poblacion?: number;
+  fechafundacion?: Date;
+  fechacreacion?: Date;
+  fechaactualizacion?: Date;
+  id_departamento?: number;
+  id_provincia?: number;
+  id_distrito?: number;
+  id_ubigeo?: string;
   colegio_cliente?: boolean;
 }

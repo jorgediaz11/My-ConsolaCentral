@@ -4,6 +4,8 @@ export class CreateUsuariosDto {
   nombres: string;
   apellido: string;
   correo: string;
+  dni?: string;
+  fecha_nacimiento?: string;
   id_perfil: number;
   id_colegio: number; // Nuevo campo
   estado: boolean;
