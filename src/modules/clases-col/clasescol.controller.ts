@@ -25,6 +25,11 @@ export class ClasesColController {
     return this.clasesColService.findOne(id_clases);
   }
 
+  @Get('detalle')
+  async findAllDetalle() {
+    return this.clasesColService.findAllDetalle();
+  }
+
   @Get('detalle/:id_clases')
   async findDetalleById(
     @Param('id_clases') id_clases: number,

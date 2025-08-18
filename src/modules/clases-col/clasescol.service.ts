@@ -8,6 +8,20 @@ import { UpdateClasesColDto } from './dto/UpdateClasesColDto';
 
 @Injectable()
 export class ClasesColService {
+  async findAllDetalle(): Promise<any[]> {
+    return this.dataSource.query(
+      `SELECT cc.id_clases, cc.id_colegio, col.nombre AS nombre_colegio, cc.id_docente, u.nombres AS nombre_docente, cc.id_nivel, n.nombre AS nombre_nivel,
+            cc.id_grado, g.nombre AS nombre_grado, cc.id_seccion, s.nombre AS nombre_seccion, cc.id_curso, cu.nombre AS nombre_curso, cc.observaciones
+       FROM clases_col cc
+       INNER JOIN colegio col ON cc.id_colegio = col.id_colegio
+       INNER JOIN usuario u ON cc.id_docente = u.id_usuario
+       INNER JOIN nivel n ON cc.id_nivel = n.id_nivel
+       INNER JOIN grado g ON cc.id_grado = g.id_grado
+       INNER JOIN seccion s ON cc.id_seccion = s.id_seccion
+       INNER JOIN curso cu ON cc.id_curso = cu.id_curso
+       WHERE cc.estado = TRUE`
+    );
+  }
   constructor(
     @InjectRepository(ClasesCol)
     private clasesColRepository: Repository<ClasesCol>,
