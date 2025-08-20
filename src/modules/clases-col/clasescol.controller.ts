@@ -6,6 +6,7 @@ import {
   Delete,
   Param,
   Body,
+  Query,
 } from '@nestjs/common';
 import { ClasesColService } from './clasescol.service';
 import { CreateClasesColDto } from './dto/CreateClasesColDto';
@@ -20,14 +21,14 @@ export class ClasesColController {
     return this.clasesColService.findAll();
   }
 
-  @Get(':id_clases')
-  findOne(@Param('id_clases') id_clases: number) {
-    return this.clasesColService.findOne(id_clases);
-  }
-
   @Get('detalle')
   async findAllDetalle() {
     return this.clasesColService.findAllDetalle();
+  }
+
+  @Get(':id_clases')
+  findOne(@Param('id_clases') id_clases: number) {
+    return this.clasesColService.findOne(id_clases);
   }
 
   @Get('detalle/:id_clases')
