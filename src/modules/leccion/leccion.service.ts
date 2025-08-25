@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { Leccion } from './leccion.entity';
 import { CreateLeccionDto } from './dto/CreateLeccionDto';
 import { UpdateLeccionDto } from './dto/UpdateLeccionDto';
@@ -17,7 +17,7 @@ export class LeccionService {
   }
 
   findOne(id: number) {
-    return this.repo.findOne({ where: { id } });
+    return this.repo.findOne({ where: { id_leccion: id } });
   }
 
   create(dto: CreateLeccionDto) {
@@ -28,6 +28,14 @@ export class LeccionService {
   async update(id: number, dto: UpdateLeccionDto) {
     await this.repo.update(id, dto);
     return this.findOne(id);
+  }
+
+  async createWithManager(
+    manager: EntityManager,
+    dto: CreateLeccionDto,
+  ): Promise<Leccion> {
+    const leccion = manager.create(Leccion, dto);
+    return await manager.save(Leccion, leccion);
   }
 
   remove(id: number) {

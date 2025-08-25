@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { Unidad } from './unidad.entity';
 import { CreateUnidadDto } from './dto/CreateUnidadDto';
 import { UpdateUnidadDto } from './dto/UpdateUnidadDto';
@@ -35,6 +35,14 @@ export class UnidadService {
   async update(id: number, dto: UpdateUnidadDto): Promise<Unidad | null> {
     await this.unidadRepository.update(id, dto);
     return this.findOne(id);
+  }
+
+  async createWithManager(
+    manager: EntityManager,
+    dto: CreateUnidadDto,
+  ): Promise<Unidad> {
+    const unidad = manager.create(Unidad, dto);
+    return await manager.save(Unidad, unidad);
   }
 
   remove(id: number): Promise<any> {

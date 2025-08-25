@@ -5,18 +5,8 @@ import { CuestionarioDetalleService } from './cuestionariodetalle.service';
 export class CuestionarioDetalleController {
   constructor(private readonly service: CuestionarioDetalleService) {}
 
-  @Get()
-  async getAll() {
-    return this.service.findAll();
-  }
-
   @Get(':id')
-  async getOne(@Param('id') id: number) {
-    return this.service.findOne(id);
+  getCuestionarioDetalle(@Param('id') id: number) {
+    return this.service.findById(Number(id));
   }
-
-    @Get('detalle/:id')
-    async getDetalle(@Param('id') id: number) {
-      return this.service.findById(id);
-    }
 }

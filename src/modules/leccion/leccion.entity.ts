@@ -1,15 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Unidad } from '../unidad/unidad.entity';
 
 @Entity('leccion')
 export class Leccion {
   @PrimaryGeneratedColumn({ name: 'id_leccion' })
-  id: number;
+  id_leccion: number;
 
-  @Column({ name: 'id_unidad' })
-  idUnidad: number;
+  @Column({ type: 'int', name: 'id_unidad' })
+  id_unidad: number; // <-- Este campo es obligatorio
 
-  @ManyToOne(() => Unidad, unidad => unidad.lecciones)
+  @ManyToOne(() => Unidad, (unidad) => unidad.lecciones)
   @JoinColumn({ name: 'id_unidad' })
   unidad: Unidad;
 
@@ -21,4 +27,6 @@ export class Leccion {
 
   @Column({ type: 'boolean' })
   estado: boolean;
+
+  // otros campos si los tienes
 }

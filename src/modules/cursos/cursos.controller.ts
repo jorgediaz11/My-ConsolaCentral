@@ -10,6 +10,7 @@ import {
 import { CursosService } from './cursos.service';
 import { CreateCursosDto } from './dto/CreateCursosDto';
 import { UpdateCursosDto } from './dto/UpdateCursosDto';
+import { CreateCursoCompletoDto } from './dto/CreateCursoCompletoDto'; // importa el DTO
 
 @Controller('cursos')
 export class CursosController {
@@ -33,6 +34,11 @@ export class CursosController {
   @Post()
   create(@Body() dto: CreateCursosDto) {
     return this.cursosService.create(dto);
+  }
+
+  @Post('completo')
+  crearCursoCompleto(@Body() dto: CreateCursoCompletoDto) {
+    return this.cursosService.crearCursoCompleto(dto);
   }
 
   @Put(':id')

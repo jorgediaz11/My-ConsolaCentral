@@ -15,9 +15,18 @@ export class Cursos {
   @PrimaryGeneratedColumn({ name: 'id_curso' })
   id_curso: number;
 
+  @Column({ type: 'int', name: 'id_area' })
+  id_area: number; // <-- Agrega este campo
+
   @ManyToOne(() => Area)
   @JoinColumn({ name: 'id_area' })
   area: Area;
+
+  @Column({ type: 'int', nullable: true })
+  id_nivel: number;
+
+  @Column({ type: 'int', name: 'id_grado' })
+  id_grado: number; // <-- Agrega este campo
 
   @ManyToOne(() => Grado)
   @JoinColumn({ name: 'id_grado' })
@@ -38,6 +47,6 @@ export class Cursos {
   @Column({ type: 'int' })
   id_colegio: number; // ID del colegio afiliado
 
-  @OneToMany(() => Unidad, unidad => unidad.curso)
+  @OneToMany(() => Unidad, (unidad) => unidad.curso)
   unidades: Unidad[];
 }
